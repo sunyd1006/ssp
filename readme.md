@@ -32,7 +32,7 @@ https://www.cnblogs.com/chengxiao/archive/2017/07/24/7141160.html
 - CyclicBarrier：
 - CountDownLatch:
 
-![image-20210105062147252](面经.assets/image-20210105062147252.png)
+![image-20210105062147252](readme.assets/image-20210105062147252.png)
 
 
 
@@ -136,11 +136,11 @@ Zookeeper等中间件。感觉还不错。美团技术团队的⼀篇⽂章：ht
 
 Java基础知识补充（Java、操作系统、网络）：[file:///C:/Users/Sun/Desktop/ssp/%E4%B8%80%E4%BA%9BPDF/java-programmers-interview-book.pdf](file:///C:/Users/Sun/Desktop/ssp/%E4%B8%80%E4%BA%9BPDF/java-programmers-interview-book.pdf)
 
-![image-20201224114423532](面经.assets/image-20201224114423532.png)
+![image-20201224114423532](readme.assets/image-20201224114423532.png)
 
 程序员面试金典：https://weread.qq.com/web/reader/bf93256071a122bebf98d95kc20321001cc20ad4d76f5ae
 
-![image-20201224114248856](面经.assets/image-20201224114248856.png)
+![image-20201224114248856](readme.assets/image-20201224114248856.png)
 
 
 
@@ -222,11 +222,11 @@ string,stringBuffer,stringBuilder的区别
 
 ### 概览
 
-![image-20201228112024559](面经.assets/image-20201228112024559.png)
+![image-20201228112024559](readme.assets/image-20201228112024559.png)
 
 
 
-![image-20201228112432956](面经.assets/image-20201228112432956.png)
+![image-20201228112432956](readme.assets/image-20201228112432956.png)
 
 
 
@@ -260,7 +260,7 @@ ArrayList<Empolyee> staff = new ArrayList<>();
 
 Java为数据结构中的映射定义了一个接口`java.util.Map`，此接口主要有四个常用的实现类，分别是`HashMap`、`Hashtable`、`LinkedHashMap`和`TreeMap`，类继承关系如下图所示：
 
-![image-20210315150548626](面经.assets/image-20210315150548626.png)
+![image-20210315150548626](readme.assets/image-20210315150548626.png)
 
 * `HashMap`：它根据键的hash code值存储数据，大多数情况下可以直接定位到它的值，因而具有很快的访问速度，但遍历顺序却是不确定的。
   *  `HashMap`最多只允许一条记录的键为null，允许多条记录的值为null。
@@ -285,7 +285,7 @@ Java为数据结构中的映射定义了一个接口`java.util.Map`，此接口�
 >
 > 红黑树讲解：https://www.jianshu.com/p/e136ec79235c
 
-![img](面经.assets/8db4a3bdfb238da1a1c4431d2b6e075c_b.png)
+![img](readme.assets/8db4a3bdfb238da1a1c4431d2b6e075c_b.png)
 
 `HashMap`类中有一个非常重要的字段，就是 `Node[] table`，即哈希桶数组，明显它是一个Node的数组。Node是`HashMap`的一个内部类，实现了`Map.Entry`接口，本质是就是一个映射(键值对)。上图中的每个黑色圆点就是一个Node对象。
 
@@ -647,6 +647,79 @@ public class Employee{
 
 
 
+### == 和equals区别
+
+**基本数据类型：==比较的是值**
+
+**引用数据类型：==比较的是内存地址**
+
+
+
+hashCode() 和 equals()
+
+Object 的 hashcode 方法是本地方法，也就是用 c 语言或 c++ 实现的，该方法通常用来将**对象的 内存地址 转换为整数之后返回.**
+
+```
+public native int hashCode();
+```
+
+
+
+引用类型中，equals()相等 和 hashCode()相等情况比较：
+
+1. equas()等，是真的等
+2. hashCode相等：不一定是真的相等，毕竟是hash过来的。不过的值，可能有同一个Hash
+
+
+
+## [8种基本类型的包装类和常量池](https://snailclimb.gitee.io/javaguide/#/docs/java/basis/Java基础知识?id=_133-8-种基本类型的包装类和常量池)
+
+ **Byte,Short,Integer,Long,Character,Boolean；前面 4 种包装类默认创建了数值[-128，127] 的相应类型的缓存数据，Character 创建了数值在[0,127]范围的缓存数据，Boolean 直接返回 True Or False**
+
+> 注意 基本类型中的真new 和 假 new问题
+
+1. Integer i1=40；Java 在编译的时候会直接将代码封装成 Integer i1=Integer.valueOf(40);，从而使用常量池中的对象。**假new**
+
+> Integer i1 = 40;
+
+>  Integer i5 = new Integer(40);
+
+>  Integer i6 = new Integer(0);
+
+> System.out.println("i4=i5+i6   " + (i4 == i5 + i6));
+
+1. Integer i1 = new Integer(40);这种情况下会创建新的对象。**真new**
+
+
+
+### 重载 重写
+
+（override）重写就是当子类继承自父类的相同方法，输入数据一样，但要做出有别于父类的响应时，你就要覆盖父类方法
+
+（overload）重载就是同样的一个方法能够根据输入数据的不同，做出不同的处理
+
+
+
+### 深浅拷贝：
+
+1. **浅拷贝**：对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，此为浅拷贝。
+2. **深拷贝**：对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容，此为深拷贝。
+
+
+
+
+
+### 多态
+
+顾名思义，表示一个对象具有多种的状态。具体表现为父类的引用指向子类的实例。**多态的特点:**
+
+- 对象类型和引用类型之间具有继承（类）/实现（接口）的关系；
+- 引用类型变量发出的方法调用的到底是哪个类中的方法，必须在程序运行期间才能确定；
+- 多态不能调用“只在子类存在但在父类不存在”的方法；
+- 如果子类重写了父类的方法，真正执行的是子类覆盖的方法，如果子类没有覆盖父类的方法，执行的是父类的方法。
+
+
+
 ## [注解狂神](https://www.bilibili.com/video/BV1p4411P7V3?p=17)
 
 建议读码：***
@@ -655,13 +728,55 @@ public class Employee{
 
 
 
-![image-20201222094446295](面经.assets/image-20201222094446295.png)
+![image-20201222094446295](readme.assets/image-20201222094446295.png)
 
 
 
 
 
-## [反射狂神](https://www.bilibili.com/video/BV1p4411P7V3?p=17)
+## 反射和反射使用的场景
+
+教程：[反射狂神](https://www.bilibili.com/video/BV1p4411P7V3?p=17)
+
+
+
+反射类型：
+
+- 静态编译：在编译时确定类型，绑定对象
+- 动态编译：运行时确定类型，绑定对象。比如反射机制
+
+
+
+常用场景：
+
+[Reflection：Java反射机制的应用场景](https://segmentfault.com/a/1190000010162647)
+
+A. 在JDBC 的操作中，如果要想进行数据库的连接，Class.forName()加载数据库的驱动。
+
+B. Spring 通过 XML 配置模式装载 Bean 的过程：
+
+
+
+反射应用场景详细：
+
+A. 在JDBC 的操作中，如果要想进行数据库的连接，则必须按照以上的几步完成
+
+1. 通过Class.forName()加载数据库的驱动程序 （通过反射加载，前提是引入相关了Jar包）
+
+B. Spring 通过 XML 配置模式装载 Bean 的过程：
+
+1. 将程序内所有 XML 或 Properties 配置文件加载入内存中
+2. Java类里面解析xml或properties里面的内容，得到对应实体类的字节码字符串以及相关的属性信息
+3. 使用反射机制，根据这个字符串获得某个类的Class实例
+4. 动态配置实例的属性
+
+Spring这样做的好处是：
+
+- 不用每一次都要在代码里面去new或者做其他的事情
+- 以后要改的话直接改配置文件，代码维护起来就很方便了
+- 有时为了适应某些需求，Java类里面不一定能直接调用另外的方法，可以通过反射机制来实现
+
+
 
 ### 获取Class对象的方式
 
@@ -669,13 +784,13 @@ public class Employee{
 - 通过Class.forname()
 - 通过类名.class获得
 
-![image-20201222101954481](面经.assets/image-20201222101954481.png)
+![image-20201222101954481](readme.assets/image-20201222101954481.png)
 
 
 
 ### 有Class的类型
 
-![image-20201222102312895](面经.assets/image-20201222102312895.png)
+![image-20201222102312895](readme.assets/image-20201222102312895.png)
 
 
 
@@ -683,19 +798,19 @@ public class Employee{
 
 ### 类的加载与ClassLoader的理解
 
-![image-20201222103956606](面经.assets/image-20201222103956606.png)
+![image-20201222103956606](readme.assets/image-20201222103956606.png)
 
 
 
 用类加载过程来说明：
 
-![image-20201222104917397](面经.assets/image-20201222104917397.png)
+![image-20201222104917397](readme.assets/image-20201222104917397.png)
 
 
 
 代码案例：
 
-![image-20201222104548781](面经.assets/image-20201222104548781.png)
+![image-20201222104548781](readme.assets/image-20201222104548781.png)
 
 
 
@@ -703,7 +818,7 @@ public class Employee{
 
 ### 什么时候发生类的初始化
 
-![image-20210315143226245](面经.assets/image-20210315143226245.png)
+![image-20210315143226245](readme.assets/image-20210315143226245.png)
 
 
 
@@ -759,13 +874,13 @@ class Son extends Father{
 
 ### 反射获取内容
 
-![image-20201222115051389](面经.assets/image-20201222115051389.png)
+![image-20201222115051389](readme.assets/image-20201222115051389.png)
 
 
 
 ### 反射创建调用对象
 
-![image-20201222115845294](面经.assets/image-20201222115845294.png)
+![image-20201222115845294](readme.assets/image-20201222115845294.png)
 
 
 
@@ -846,7 +961,7 @@ public class ReflectionTime {
 
 ### 反射操作泛型
 
-![image-20201222135127041](面经.assets/image-20201222135127041.png)
+![image-20201222135127041](readme.assets/image-20201222135127041.png)
 
 ```java
 package com.reflection;
@@ -965,21 +1080,281 @@ java是运行指令，**不要**带.class后缀，因为java命令指定是类�
 
 
 
-# 3 Java 锁 & 并发
+# 3 Java 并发&锁 
 
 
 
-[进程状态的切换](http://www.cyc2018.xyz/计算机基础/操作系统基础/计算机操作系统 - 进程管理.html#进程状态的切换)
+## [Java 并发进阶常见面试题总结](https://snailclimb.gitee.io/javaguide/#/docs/java/multi-thread/2020最新Java并发进阶常见面试题总结?id=java-并发进阶常见面试题总结)
 
-线程的5种状态详解：https://blog.csdn.net/xingjing1226/article/details/81977129
+### [JMM(Java 内存模型)](https://snailclimb.gitee.io/javaguide/#/docs/java/multi-thread/2020最新Java并发进阶常见面试题总结?id=_22-讲一下-jmmjava-内存模型)
+
+### volatile关键字
+
+volatile 关键字主要作用： 
+
+1. 除了防止 JVM 的指令重排 
+2. 还有一个重要的作用就是保证变量的可见性。
+
+
+
+### [并发编程的三个重要特性](https://snailclimb.gitee.io/javaguide/#/docs/java/multi-thread/2020最新Java并发进阶常见面试题总结?id=_23-并发编程的三个重要特性)
+
+并发变成重要特性：
+
+1. **原子性** : 一个的操作或者多次操作，要么所有的操作全部都得到执行并且不会收到任何因素的干扰而中断，要么所有的操作都执行，要么都不执行。synchronized 可以保证代码片段的原子性。
+2. **可见性** ：当一个变量对共享变量进行了修改，那么另外的线程都是立即可以看到修改后的最新值。volatile 关键字可以保证共享变量的可见性。
+3. **有序性** ：代码在执行的过程中的先后顺序，Java 在编译器以及运行期间的优化，代码的执行顺序未必就是编写代码时候的顺序。volatile 关键字可以禁止指令进行重排序优化。
+
+
+
+### [说说 sleep() 方法和 wait() 方法区别和共同点](https://snailclimb.gitee.io/javaguide/#/docs/java/multi-thread/2020最新Java并发基础常见面试题总结?id=_9-说说-sleep-方法和-wait-方法区别和共同点)
+
+- 两者最主要的区别在于：**sleep() 方法没有释放锁，而 wait() 方法释放了锁** 。
+- 两者都可以暂停线程的执行。
+- wait() 通常被用于线程间交互/通信，sleep() 通常被用于暂停执行。
+- wait() 方法被调用后，线程不会自动苏醒，需要别的线程调用同一个对象上的 notify() 或者 notifyAll() 方法。sleep() 方法执行完成后，线程会自动苏醒。或者可以使用 wait(long timeout) 超时后线程会自动苏醒。
+
+
+
+
+
+### 
+
+# 
+
+### [synchronized 同步语句块、方法的区别](https://snailclimb.gitee.io/javaguide/#/docs/java/multi-thread/2020最新Java并发进阶常见面试题总结?id=_131-synchronized-同步语句块的情况)
+
+阅读：[Java6及以上版本对synchronized的优化 - 吴庆龙的技术轮子 - 博客园](https://www.cnblogs.com/wuqinglong/p/9945618.html)
+
+JVM基于进入和退出Monitor对象来实现方法同步和代码块同步, 但是两者的实现细节不一样.
+
+1. 代码块同步: 通过使用monitorenter和monitorexit指令实现的.
+2. 同步方法: ACC_SYNCHRONIZED修饰
+
+具体点：
+
+- **synchronized** **同步语句块：实现使用的是** **monitorenter** **和** **monitorexit** **指令，其中** **monitorenter** **指令指向同步代码块的开始位置，****monitorexit** **指令则指明同步代码块的结束位置。当执行** **monitorenter** **指令时，线程试图获取锁也就是获取 对象监视器** **monitor** **的持有权。并且在 Java 虚拟机(HotSpot)中，Monitor 是基于 C++实现的，由****[ObjectMonitor](https://github.com/openjdk-mirror/jdk7u-hotspot/blob/50bdefc3afe944ca74c3093e7448d6b889cd20d1/src/share/vm/runtime/objectMonitor.cpp)****实现的。每个对象中都内置了一个** **ObjectMonitor****对象。**
+- synchronized 修饰的方法：并没有 monitorenter 指令和 monitorexit 指令，取得代之的确实是 ACC_SYNCHRONIZED 标识，该标识指明了该方法是一个同步方法。
+- **不过两者的本质都是对对象监视器 monitor 的获取。**
+
+
+
+
+
+### Thread ThreadLocal ThreadLocalMap
+
+参看：[3.3. ThreadLocal 原理](https://snailclimb.gitee.io/javaguide/#/docs/java/multi-thread/2020最新Java并发进阶常见面试题总结?id=_33-threadlocal-原理)
+
+<img src="readme.assets/(null)" alt="img" style="zoom:50%;" />
+
+#### [ThreadLocal 内存泄露问题](https://snailclimb.gitee.io/javaguide/#/docs/java/multi-thread/2020最新Java并发进阶常见面试题总结?id=_34-threadlocal-内存泄露问题)
+
+ThreadLocalMap 中使用的 key 为 ThreadLocal 的弱引用,而 value 是强引用。所以，如果 ThreadLocal 没有被外部强引用的情况下，在垃圾回收的时候，key 会被清理掉，而 value 不会被清理掉。这样一来，ThreadLocalMap 中就会出现 key 为 null 的 Entry。假如我们不做任何措施的话，value 永远无法被 GC 回收，这个时候就可能会产生内存泄露。ThreadLocalMap 实现中已经考虑了这种情况，在调用 set()、get()、remove() 方法的时候，会清理掉 key 为 null 的记录。使用完 ThreadLocal方法后 最好手动调用remove()方法
+
+
+
+Sun:
+
+ThreadLocal.set()、get()一般和remove(）一起使用
+
+## 
+
+
+
+### [为什么要用线程池？](https://snailclimb.gitee.io/javaguide/#/docs/java/multi-thread/2020最新Java并发进阶常见面试题总结?id=_41-为什么要用线程池？)
+
+- **降低资源消耗**。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。
+- **提高响应速度**。当任务到达时，任务可以不需要的等到线程创建就能立即执行。
+- **提高线程的可管理性**。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。
+
+
+
+
+
+### [4.2. 实现 Runnable 接口和 Callable 接口的区别](https://snailclimb.gitee.io/javaguide/#/docs/java/multi-thread/2020最新Java并发进阶常见面试题总结?id=_42-实现-runnable-接口和-callable-接口的区别)
+
+Runnable自 Java 1.0 以来一直存在，但Callable仅在 Java 1.5 中引入,目的就是为了来处理Runnable不支持的用例。**Runnable 接口**不会返回结果或抛出检查异常，但是**Callable 接口**可以。所以，如果任务不需要返回结果或抛出异常推荐使用 \******Runnable** **接口**，这样代码看起来会更加简洁。
+
+
+
+原子类，CAS，ABA问题：
+
+建议读：[JUC 中的 Atomic 原子类总结 - 不懒人 - 博客园](https://www.cnblogs.com/wuwuyong/p/12173954.html)
+
+CAS + ABA：CAS 比较与交换，在原子类中使用较多。ABA 是 ：A线程获取oldValue, B线程获取到oldValue，但改成newValue后，又改回oldValue。A线程是察觉不到这个问题的，compareAndSet(expect, newValue）就还是成功的。
+
+如何解决ABA问题：
+
+- AtomicStampedReference
+- AtomicMarkedReference
+
+
+
+### [6.1. AQS（AbstractQueuedSynchronizer） 介绍](https://snailclimb.gitee.io/javaguide/#/docs/java/multi-thread/2020最新Java并发进阶常见面试题总结?id=_61-aqs-介绍)
+
+JavaGuide AQS详细讲解：[1 AQS 简单介绍](https://snailclimb.gitee.io/javaguide/#/docs/java/multi-thread/AQS原理以及AQS同步组件总结?id=_1-aqs-简单介绍)
+
+[Java并发之AQS详解 - waterystone - 博客园](http://www.cnblogs.com/waterystone/p/4920797.html)
+
+[Java并发包基石-AQS详解 - dreamcatcher-cx - 博客园](https://www.cnblogs.com/chengxiao/archive/2017/07/24/7141160.html)
+
+
+
+AQS 是一个用来构建锁和同步器的框架，使用 AQS 能简单且高效地构造出应用广泛的大量的同步器，比如我们提到的 ReentrantLock，Semaphore，其他的诸如 ReentrantReadWriteLock，SynchronousQueue，FutureTask 等等皆是基于 AQS 的。当然，我们自己也能利用 AQS 非常轻松容易地构造出符合我们自己需求的同步器。
+
+
+
+使用原子类的好处：
+
+1. 本身就是原子的加，原子的减法。就不必再单独对一个操作进行加锁了
+
+
+
+
+
+CyclicBarrier 用法
+
+当调用 CyclicBarrier 对象调用 await() 方法时，实际上调用的是dowait(false, 0L)方法。 await() 方法就像树立起一个栅栏的行为一样，将线程挡住了，当拦住的线程数量达到 parties 的值时，栅栏才会打开，线程才得以通过执行。
+
+
+
+
+
+CyclicBarrier 和 CountDownLatch 的区别：
+
+[多线程CountDownLatch和CyclicBarrier的区别 以及举例_paul342的专栏-CSDN博客](https://blog.csdn.net/paul342/article/details/49661991)
+
+- CountDownLatch : **一个线程**(或者多个)， 等待另外**N个线程**完成**某个事情**之后才能执行
+- CyclicBarrier    : **N个线程**相互等待，任何一个线程完成之前，所有的线程都必须等待，**然后都可以做其他事情了。强调某时刻同步一个状态**
+
+
+
+
+
+### Trick
+
+- **调用 start() 方法方可启动线程并使线程进入就绪状态，直接执行 run() 方法的话不会以多线程的方式执行**
+- **修饰代码块** ：指定加锁对象，对给定对象/类加锁。synchronized(this|object) 表示进入同步代码库前要获得**给定对象的锁**。synchronized(类.class) 表示进入同步代码前要获得 **当前 class 的锁**
+
+
+
+## **锁的升级(进化)** 
+
+建议看：[Java6及以上版本对synchronized的优化 - 吴庆龙的技术轮子 - 博客园](https://www.cnblogs.com/wuqinglong/p/9945618.html)
+
+[浅谈偏向锁、轻量级锁、重量级锁](https://juejin.cn/post/6844903550586191885)
+
+[Java的对象头和对象组成详解_lkforce-CSDN博客_java对象头](https://blog.csdn.net/lkforce/article/details/81128115?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-6.control&dist_request_id=1328689.11886.16165933840482131&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-6.control)
+
+
+
+总结：
+
+JVM一般是这样使用锁和Mark Word的：
+
+1，当没有被当成锁时，这就是一个普通的对象，Mark Word记录对象的HashCode，锁标志位是01，是否偏向锁那一位是0。
+
+2，当对象被当做同步锁并有一个线程A抢到了锁时，锁标志位还是01，但是否偏向锁那一位改成1，前23bit记录抢到锁的线程id，表示进入偏向锁状态。
+
+3，当线程A再次试图来获得锁时，JVM发现同步锁对象的标志位是01，是否偏向锁是1，也就是偏向状态，Mark Word中记录的线程id就是线程A自己的id，表示线程A已经获得了这个偏向锁，可以执行同步锁的代码。
+
+4，当线程B试图获得这个锁时，JVM发现同步锁处于偏向状态，但是Mark Word中的线程id记录的不是B，那么线程B会先用CAS操作试图获得锁，这里的获得锁操作是有可能成功的，因为线程A一般不会自动释放偏向锁。如果抢锁成功，就把Mark Word里的线程id改为线程B的id，代表线程B获得了这个偏向锁，可以执行同步锁代码。如果抢锁失败，则继续执行步骤5。
+
+5，偏向锁状态抢锁失败，代表当前锁有一定的竞争，偏向锁将升级为轻量级锁。JVM会在当前线程的线程栈中开辟一块单独的空间，里面保存指向对象锁Mark Word的指针，同时在对象锁Mark Word中保存指向这片空间的指针。上述两个保存操作都是CAS操作，如果保存成功，代表线程抢到了同步锁，就把Mark Word中的锁标志位改成00，可以执行同步锁代码。如果保存失败，表示抢锁失败，竞争太激烈，继续执行步骤6。
+
+6，轻量级锁抢锁失败，JVM会使用自旋锁，自旋锁不是一个锁状态，只是代表不断的重试，尝试抢锁。从JDK1.7开始，自旋锁默认启用，自旋次数由JVM决定。如果抢锁成功则执行同步锁代码，如果失败则继续执行步骤7。
+
+7，自旋锁重试之后如果抢锁依然失败，同步锁会升级至重量级锁，锁标志位改为10。在这个状态下，未抢到锁的线程都会被阻塞。 
+
+
+
+
+
+![img](readme.assets/(null)-20210331230204330.(null))
+
+
+
+**偏向锁**
+
+偏向锁是针对于一个线程而言的, 线程获得锁之后就不会再有解锁等操作了, 这样可以省略很多开销. 假如有两个线程来竞争该锁话, 那么偏向锁就失效了, 进而升级成轻量级锁了.
+
+为什么要这样做呢? 因为经验表明, 其实大部分情况下, 都会是同一个线程进入同一块同步代码块的. 这也是为什么会有偏向锁出现的原因.
+
+在Jdk1.6中, 偏向锁的开关是默认开启的, 适用于只有一个线程访问同步块的场景.
+
+**偏向锁的加锁**
+
+当一个线程访问同步块并获取锁时, 会在锁对象的对象头和栈帧中的锁记录里存储锁偏向的线程ID, 以后该线程进入和退出同步块时不需要进行CAS操作来加锁和解锁, 只需要简单的测试一下锁对象的对象头的MarkWord里是否存储着指向当前线程的偏向锁(线程ID是当前线程), 如果测试成功, 表示线程已经获得了锁; 如果测试失败, 则需要再测试一下MarkWord中偏向锁的标识是否设置成1(表示当前是偏向锁), 如果没有设置, 则使用CAS竞争锁, 如果设置了, 则尝试使用CAS将锁对象的对象头的偏向锁指向当前线程.
+
+**偏向锁的撤销**
+
+偏向锁使用了一种等到竞争出现才释放锁的机制, 所以当其他线程尝试竞争偏向锁时, 持有偏向锁的线程才会释放锁. 偏向锁的撤销需要等到全局安全点(在这个时间点上没有正在执行的字节码). 首先会暂停持有偏向锁的线程, 然后检查持有偏向锁的线程是否存活, 如果线程不处于活动状态, 则将锁对象的对象头设置为无锁状态; 如果线程仍然活着, 则锁对象的对象头中的MarkWord和栈中的锁记录要么重新偏向于其它线程要么恢复到无锁状态, **最后唤醒暂停的线程(释放偏向锁的线程).**
+
+偏向锁在Java6及更高版本中是默认启用的, 但是它在程序启动几秒钟后才激活. 可以使用-XX:BiasedLockingStartupDelay=0来关闭偏向锁的启动延迟, 也可以使用-XX:-UseBiasedLocking=false来关闭偏向锁, 那么程序会直接进入轻量级锁状态.
+
+**6-2.轻量级锁**
+
+当出现有两个线程来竞争锁的话, 那么偏向锁就失效了, 此时锁就会膨胀, 升级为轻量级锁.
+
+**轻量级锁加锁**
+
+线程在执行同步块之前, JVM会先在当前线程的栈帧中创建用户存储锁记录的空间, 并将对象头中的MarkWord复制到锁记录中. 然后线程尝试使用CAS将对象头中的MarkWord替换为指向锁记录的指针. 如果成功, 当前线程获得锁; 如果失败, 表示其它线程竞争锁, 当前线程便尝试使用自旋来获取锁, 之后再来的线程, 发现是轻量级锁, 就开始进行自旋.
+
+**轻量级锁解锁**
+
+轻量级锁解锁时, 会使用原子的CAS操作将当前线程的锁记录替换回到对象头, 如果成功, 表示没有竞争发生; 如果失败, 表示当前锁存在竞争, 锁就会膨胀成重量级锁.
+
+**总结**
+
+总结一下加锁解锁过程, 有线程A和线程B来竞争对象c的锁(如: synchronized(c){} ), 这时线程A和线程B同时将对象c的MarkWord复制到自己的锁记录中, 两者竞争去获取锁, 假设线程A成功获取锁, 并将对象c的对象头中的线程ID(MarkWord中)修改为指向自己的锁记录的指针, 这时线程B仍旧通过CAS去获取对象c的锁, 因为对象c的MarkWord中的内容已经被线程A改了, 所以获取失败. 此时为了提高获取锁的效率, 线程B会循环去获取锁, 这个循环是有次数限制的, 如果在循环结束之前CAS操作成功, 那么线程B就获取到锁, 如果循环结束依然获取不到锁, 则获取锁失败, 对象c的MarkWord中的记录会被修改为重量级锁, 然后线程B就会被挂起, 之后有线程C来获取锁时, 看到对象c的MarkWord中的是重量级锁的指针, 说明竞争激烈, 直接挂起.
+
+解锁时, 线程A尝试使用CAS将对象c的MarkWord改回自己栈中复制的那个MarkWord, 因为对象c中的MarkWord已经被指向为重量级锁了, 所以CAS失败. 线程A会释放锁并唤起等待的线程, 进行新一轮的竞争.
+
+**6.锁的比较**
+
+锁优点缺点适用场景偏向锁加锁和解锁不需要额外的消耗, 和执行非同步代码方法的性能相差无几.如果线程间存在锁竞争, 会带来额外的锁撤销的消耗.适用于只有一个线程访问的同步场景轻量级锁竞争的线程不会阻塞, 提高了程序的响应速度如果始终得不到锁竞争的线程, 使用自旋会消耗CPU追求响应时间, 同步快执行速度非常快重量级锁线程竞争不适用自旋, 不会消耗CPU线程堵塞, 响应时间缓慢追求吞吐量, 同步快执行时间速度较长
+
+**7.总结**
+
+首先要明确一点是引入这些锁是为了提高获取锁的效率, 要明白每种锁的使用场景, 比如偏向锁适合一个线程对一个锁的多次获取的情况; 轻量级锁适合锁执行体比较简单(即减少锁粒度或时间), 自旋一会儿就可以成功获取锁的情况.
+
+要明白MarkWord中的内容表示的含义.
+
+## [谈谈 synchronized 和 ReentrantLock 的区别](https://snailclimb.gitee.io/javaguide/#/docs/java/multi-thread/2020最新Java并发进阶常见面试题总结?id=_15-谈谈-synchronized-和-reentrantlock-的区别)
+
+**“可重入锁”** ：指的是自己（sun:指的是当前线程）可以再次获取自己的内部锁。
+
+相比synchronized，ReentrantLock增加了一些高级功能。主要来说主要有三点：
+
+- **等待可中断** : ReentrantLock提供了一种能够中断等待锁的线程的机制，通过 lock.lockInterruptibly() 来实现这个机制。也就是说正在等待的线程可以选择放弃等待，改为处理其他事情。
+- **可实现公平锁** : ReentrantLock可以指定是公平锁还是非公平锁。而synchronized只能是非公平锁。所谓的公平锁就是先等待的线程先获得锁。ReentrantLock默认情况是非公平的，可以通过 ReentrantLock类的ReentrantLock(boolean fair)构造方法来制定是否是公平的。
+- **可实现选择性通知（锁可以绑定多个条件）**: synchronized关键字与wait()和notify()/notifyAll()方法相结合可以实现等待/通知机制。ReentrantLock类当然也可以实现，但是需要借助于Condition接口与newCondition()方法。
+
+
+
+### Trick
+
+为什么 syschoronized 实例可以访问实例的锁，实例还可以访问对象锁。
+
+**因为访问静态** **synchronized** **方法占用的锁是当前类的锁，而访问非静态** **synchronized** **方法占用的锁是当前实例对象锁**。
+
+
+
+https://blog.csdn.net/lkforce/article/details/81128115?utm_source=copy)
+
+
 
 ## 进程 VS 线程的状态改变
 
-![image-20210315210556944](面经.assets/image-20210315210556944.png)
+进程管理：[进程状态的切换](http://www.cyc2018.xyz/计算机基础/操作系统基础/计算机操作系统 - 进程管理.html#进程状态的切换)
+
+线程的5种状态详解：https://blog.csdn.net/xingjing1226/article/details/81977129
+
+![image-20210315210556944](readme.assets/image-20210315210556944.png)
 
 
 
-![image-20210315210710997](面经.assets/image-20210315210710997.png)
+![image-20210315210710997](readme.assets/image-20210315210710997.png)
 
 **线程相关状态图**
 
@@ -1012,8 +1387,6 @@ java是运行指令，**不要**带.class后缀，因为java命令指定是类�
 ## 线程安全是什么
 
 推荐看：https://juejin.im/post/6844903923116048397#heading-0
-
-
 
 是什么：不同的线程可以访问相同的资源，而不会暴露出错误的行为或产生不可预知的结果。
 
@@ -1051,7 +1424,7 @@ java是运行指令，**不要**带.class后缀，因为java命令指定是类�
 
 类加载的过程：[JavaGuide](https://snailclimb.gitee.io/javaguide/#/docs/java/jvm/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B)
 
-![img](面经.assets/类加载过程-完善.png)
+![img](readme.assets/类加载过程-完善.png)
 
 准备：我们定义了public static int value=111 ，那么 value 变量在准备阶段的初始值就是 0 而不是111（初始化阶段才会赋值）。特殊情况：比如给 value 变量加上了 fianl 关键字public static final int value=111 ，那么准备阶段 value 的值就被赋值为 111
 
@@ -1989,41 +2362,55 @@ eg：消除concaString()是，就算转换为StringBuffer进行拼接需要对�
 
 
 
-
-
-
-
-### 
-
-
-
-## 问题：
-
-为什么重写`equals`非要重写 `hashcode` 呢？
-
-SpringBoot和Spring的区别是什么：
-
-synchronized的实现
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # 4 JVM
+
+
+
+## 字面量和符号引用todo
+
+建议看：[java字面量和符号引用_彻底弄懂java中的常量池_从夏的博客-CSDN博客](https://blog.csdn.net/weixin_29357243/article/details/112181473)
+
+建议看2：[Java常量池理解与总结](https://www.jianshu.com/p/c7f47de2ee80)
+
+class文件里常量池里大部分数据会被加载到“运行时常量池”，包括String的字面量；但同时“Hello”字符串的一个引用会被存到同样在“非堆”区域的“字符串常量池”中。1.8以后在元空间中，元空间在本地内存中，而"Hello"本体还是和所有对象一样，创建在Java堆中。
+
+
+
+常量池主要存放两大常量：字面量和符号引用。字面量比较接近于 Java 语言层面的的常量概念，如文本字符串、声明为 final 的常量值等。而符号引用则属于编译原理方面的概念。包括下面三类常量：
+
+- 类和接口的全限定名
+- 字段的名称和描述符
+- 方法的名称和描述符
+
+
+
+## 强弱软虚 todo
+
+
+
+## 垃圾收集器
+
+[深入理解JVM（5） : Java垃圾收集器](https://www.jianshu.com/p/50d5c88b272d)
+
+
+
+## 字节码
+
+[建议看：javap查看java字节码_dengyu的专栏-CSDN博客_javap 字节码](https://blog.csdn.net/u010377605/article/details/79577700)
+
+javap -c -s -v -l 查看字节码
+
+
+
+
+
+### [类加载过程](https://snailclimb.gitee.io/javaguide/#/docs/java/jvm/类加载过程?id=类加载过程)
+
+Java 虚拟机为每个类都准备了一张方法表来存放类中所有的方法。当需要调用一个类的方法的时候，只要知道这个方法在方法表中的偏移量就可以直接调用该方法了。
+
+
+
+
 
 **1.既然有GC机制，为什么还会有内存泄露的情况？**
 
@@ -2180,7 +2567,7 @@ public class MyStack<T> {
 
 java中堆的分区：https://blog.csdn.net/qq_41700030/article/details/99310305
 
-![以下内容基本围绕本图来讨论](面经.assets/20190812164822918.png)
+![以下内容基本围绕本图来讨论](readme.assets/20190812164822918.png)
 
 
 
@@ -2198,7 +2585,7 @@ java中堆的分区：https://blog.csdn.net/qq_41700030/article/details/99310305
 123456
 ```
 
-![在这里插入图片描述](面经.assets/20190812221749958.png)
+![在这里插入图片描述](readme.assets/20190812221749958.png)
 
 1. 加载class文件到class内容区域，加载静态方法和静态变量到静态区（同时加载的）
 2. 调用main方法到栈内存
@@ -2616,7 +3003,7 @@ public class FinalReferenceEscapeExample {
 
 　　说明：假设一个线程 A 执行 writer()方法，另一个线程 B 执行 reader()方法。这里的操作 2 使得对象还未完成构造前就为线程 B 可见。即使这里的操作 2 是构造函数的最后一步，且即使在程序中操作 2 排在操作 1 后面，执行 read()方法的线程仍然可能无 法看到 final 域被初始化后的值，因为这里的操作 1 和操作 2 之间可能被重排序。实际的执行时序可能如下图所示：
 
-![img](面经.assets/616953-20160321160044683-1911453288.png)
+![img](readme.assets/616953-20160321160044683-1911453288.png)
 
 　　说明：在构造函数返回前，被构造对象的引用不能为其他线程可见，因为此时的 final 域可能还没有被初始化。在构造函数返回后，任意线程都将保证能看到 final 域正确初始化之后的值。
 
@@ -2719,7 +3106,7 @@ Java虚拟机规范对方法区的限制非常宽松，除了和Java堆一样不
 
 ## 垃圾收集器
 
-![image-20201228095228405](面经.assets/image-20201228095228405.png)
+![image-20201228095228405](readme.assets/image-20201228095228405.png)
 
 ### Serial收集器
 
@@ -2777,7 +3164,7 @@ Java 在诞生的时候喊出了一个非常牛逼的口号：“Write Once， R
 
 
 
-![img](面经.assets/v2-c263eb51a16b1286dd859940e5763a33_b.jpg)
+![img](readme.assets/v2-c263eb51a16b1286dd859940e5763a33_b.jpg)
 
 
 
@@ -2946,7 +3333,7 @@ PS：双亲委派模型突然让我联想到朱元璋同志，这个同志当上
 
 操作数栈：后进先出（Last-In-First-Out）的操作数栈，也可以称之为表达式栈（Expression Stack）。
 
-![image-20201228085735704](面经.assets/image-20201228085735704.png)
+![image-20201228085735704](readme.assets/image-20201228085735704.png)
 
 [Java中线程与堆栈的关系](https://www.cnblogs.com/heihaozi/p/11741733.html)：
 
@@ -2958,13 +3345,13 @@ PS：双亲委派模型突然让我联想到朱元璋同志，这个同志当上
 
 这么讲比较抽象，写段代码：
 
-![img](面经.assets/v2-57f5669a6d95e5ef328fbf11e84071f3_r.jpg)
+![img](readme.assets/v2-57f5669a6d95e5ef328fbf11e84071f3_r.jpg)
 
 当程序执行到箭头指向那一个行代码的时候，
 入参i和局部变量j都是基本类型，直接存放在栈中。
 入参str和oneMoreStudy是对象类型，在栈中只存放对象的引用。
 如下图：
-![img](面经.assets/v2-1f0302b48baebd252a82ca8fb71f9e12_r.jpg)
+![img](readme.assets/v2-1f0302b48baebd252a82ca8fb71f9e12_r.jpg)
 
 ### 垃圾收集
 
@@ -3048,6 +3435,119 @@ MyISAM：
 
 
 
+## B、B+、为什么B+
+
+### B+树和B树的区别
+
+[b树和b+树的区别_login_sonata的博客-CSDN博客_b树与b+树的区别](https://blog.csdn.net/login_sonata/article/details/75268075)
+
+
+
+### b+树相比于b树的查询优势
+
+b+树的中间节点不保存数据，占用空间更小，所以磁盘页能容纳更多节点元素，更“矮胖”；
+
+b+树查询必须查找到叶子节点，b树只要匹配到即可不用管元素位置，因此b+树查找更稳定（并不慢）；
+
+对于范围查找来说，b+树只需遍历叶子节点链表即可，b树却需要重复地中序遍历，如下两图： 
+
+
+
+
+
+### 为什么B+数做索引
+
+[深入理解数据库索引采用B树和B+树的原因 - 那些年的代码 - 博客园](https://www.cnblogs.com/zhuyeshen/p/12073135.html)
+
+sun总结：访问数据耗费的时间，主要取决顺访问磁盘的时间。访问磁盘的时间，主要取取决于磁盘IO时间，进一步讲磁盘IO取决于巡道、旋转时延、传输时延。局部预读原理说明：当访问一个地址数据的时候，与其相邻的数据很快也会被访问到。每次磁盘IO读取的数据我们称之为一页（page）。一页的大小与操作系统有关，**一般为4k或者8k（****[或者16k](https://snailclimb.gitee.io/javaguide/#/docs/database/MySQL Index?id=先从-mysql-的基本存储结构说起)****)**。这也就意味着读取一页内数据的时候，实际上发生了一次磁盘IO。
+
+故而尽量选取矮胖形态（B+能够分裂）的树，磁盘IO次数能小于瘦高形（平衡二叉树）的树。
+
+
+
+
+
+## mysql 锁机制
+
+[一张图彻底搞懂 MySQL 的锁机制 | MySQL 技术论坛](https://learnku.com/articles/39212?order_by=vote_count&)
+
+[Mysql锁机制简单了解一下_不忘初心-CSDN博客_简单讲讲mysql的锁机制](https://blog.csdn.net/qq_34337272/article/details/80611486)
+
+1. 尽可能让所有数据检索都通过索引来完成，避免无索引行锁升级为表锁
+2. 合理设计索引，尽量缩小锁的范围
+3. 尽可能较少检索条件，避免间隙锁
+4. 尽量控制事务大小，减少锁定资源量和时间长度
+5. 尽可能低级别事务隔离
+
+### 
+
+### [MyISAM和InnoDB区别](https://snailclimb.gitee.io/javaguide/#/docs/database/MySQL?id=myisam和innodb区别)
+
+1. **是否支持行级锁** : MyISAM 只有表级锁(table-level locking)，而InnoDB 支持行级锁(row-level locking)和表级锁,默认为行级锁。
+2. **是否支持事务和崩溃后的安全恢复： MyISAM** 强调的是性能，每次查询具有原子性,其执行速度比InnoDB类型更快，但是不提供事务支持。但是**InnoDB** 提供事务支持，外部键等高级数据库功能。 具有事务(commit)、回滚(rollback)和崩溃修复能力(crash recovery capabilities)的事务安全(transaction-safe (ACID compliant))型表。
+3. **是否支持外键：** MyISAM不支持，而InnoDB支持。
+4. **是否支持MVCC** ：仅 InnoDB 支持。应对高并发事务, MVCC比单纯的加锁更高效;MVCC只在 READ COMMITTED 和 REPEATABLE READ 两个隔离级别下工作;MVCC可以使用 乐观(optimistic)锁 和 悲观(pessimistic)锁来实现;各数据库中MVCC实现并不统一。推荐阅读：[MySQL-InnoDB-MVCC多版本并发控制](https://segmentfault.com/a/1190000012650596)
+5. ......
+
+
+
+
+
+## 调优
+
+### 大表优化
+
+水平拆分可以支持非常大的数据量。需要注意的一点是：分表仅仅是解决了单一表数据过大的问题，但由于表的数据还是在同一台机器上，其实对于提升MySQL并发能力没有什么意义，所以 **水平拆分最好分库** 。
+
+水平拆分能够 **支持非常大的数据量存储，应用端改造也少**，但 **分片事务难以解决** ，跨节点Join性能较差，逻辑复杂。《Java工程师修炼之道》的作者推荐 **尽量不要对数据进行分片，因为拆分会带来逻辑、部署、运维的各种复杂度** ，一般的数据表在优化得当的情况下支撑千万以下的数据量是没有太大问题的。如果实在要分片，尽量选择客户端分片架构，这样可以减少一次和中间件的网络I/O。
+
+**下面补充一下数据库分片的两种常见方案：**
+
+- **客户端代理：** **分片逻辑在应用端，封装在jar包中，通过修改或者封装JDBC层来实现。** 当当网的 **Sharding-JDBC** （推荐） 、阿里的TDDL是两种比较常用的实现。
+- **中间件代理：** **在应用和数据中间加了一个代理层。分片逻辑统一维护在中间件服务中。** 我们现在谈的 **Mycat** 、360的Atlas、网易的DDB等等都是这种架构的实现。
+
+详细内容可以参考： MySQL大表优化方案: https://segmentfault.com/a/1190000006158186
+
+## 
+
+### [一条SQL语句在MySQL中如何执行的](https://snailclimb.gitee.io/javaguide/#/docs/database/MySQL?id=一条sql语句在mysql中如何执行的)
+
+[一条SQL语句在MySQL中如何执行的](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485097&idx=1&sn=84c89da477b1338bdf3e9fcd65514ac1&chksm=cea24962f9d5c074d8d3ff1ab04ee8f0d6486e3d015cfd783503685986485c11738ccb542ba7&token=79317275&lang=zh_CN#rd)
+
+
+
+### [MySQL高性能优化规范建议](https://snailclimb.gitee.io/javaguide/#/docs/database/MySQL?id=mysql高性能优化规范建议)
+
+[MySQL高性能优化规范建议](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485117&idx=1&sn=92361755b7c3de488b415ec4c5f46d73&chksm=cea24976f9d5c060babe50c3747616cce63df5d50947903a262704988143c2eeb4069ae45420&token=79317275&lang=zh_CN#rd)
+
+
+
+### [一条SQL语句执行得很慢的原因有哪些](https://snailclimb.gitee.io/javaguide/#/docs/database/MySQL?id=一条sql语句执行得很慢的原因有哪些？)
+
+[腾讯面试：一条SQL语句执行得很慢的原因有哪些？---不看后悔系列](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485185&idx=1&sn=66ef08b4ab6af5757792223a83fc0d45&chksm=cea248caf9d5c1dc72ec8a281ec16aa3ec3e8066dbb252e27362438a26c33fbe842b0e0adf47&token=79317275&lang=zh_CN#rd)
+
+一个 SQL 执行的很慢，我们要分两种情况讨论：
+
+1、大多数情况下很正常，偶尔很慢，则有如下原因
+
+(1)、数据库在刷新脏页，例如 redo log 写满了需要同步到磁盘。
+
+(2)、执行的时候，遇到锁，如表锁、行锁。
+
+2、这条 SQL 语句一直执行的很慢，则有如下原因。
+
+(1)、没有用上索引：例如该字段没有索引；由于对字段进行运算、函数操作导致无法用索引。
+
+(2)、数据库选错了索引。
+
+
+
+
+
+[【思维导图-索引篇】搞定数据库索引就是这么简单](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247484848&idx=1&sn=77a0e6e82944ec385f5df17e91ce3bf2&chksm=cea24a7bf9d5c36d4b289cccb017292f9f36da9f3c887fd2b93ecd6af021fcf30121ba09799f&token=1082669959&lang=zh_CN&scene=21#wechat_redirect)
+
+![img](readme.assets/(null)-20210331230544011.(null))
+
 
 
 
@@ -3090,7 +3590,7 @@ B树非叶子节点也会存数据，所以不适合mysql(以后研究下mongo�
 
 B+树适合作为数据库的基础结构，完全是因为计算机的内存-机械硬盘两层存储结构。内存可以完成快速的随机访问（随机访问即给出任意一个地址，要求返回这个地址存储的数据）但是容量较小。而硬盘的随机访问要经过机械动作（1磁头移动 2盘片转动），访问效率比内存低几个数量级，但是硬盘容量较大。典型的数据库容量大大超过可用内存大小，这就决定了在B+树中检索一条数据很可能要借助几次磁盘IO操作来完成。如下图所示：通常向下读取一个节点的动作可能会是一次磁盘IO操作，不过非叶节点通常会在初始阶段载入内存以加快访问速度。同时为提高在节点间横向遍历速度，真实数据库中可能会将图中蓝色的CPU计算/内存读取优化成二叉搜索树（InnoDB中的page directory机制）。
 
-![img](面经.assets/1728546-6751ac50ec23615b.PNG)
+![img](readme.assets/1728546-6751ac50ec23615b.PNG)
 
  
 
@@ -3102,7 +3602,7 @@ B+树适合作为数据库的基础结构，完全是因为计算机的内存-�
 
 3 对于一个22.1G容量的表，B+树的高度是3，如果要把非叶节点全部加载到内存也只需要少于18.8M的内存（如何得出的这个结论？因为对于高度为2的树，1203个叶子节点也只需要18.8M空间，而22.1G从良表的高度是3，非叶节点1204个。同时我们假设叶子节点的尺寸是大于非叶节点的，因为叶子节点存储了行数据而非叶节点只有键和少量数据。），只使用如此少的内存就可以保证只需要一次磁盘IO操作就检索出所需的数据，效率是非常之高的。
 
-![img](面经.assets/1728546-07405bc11f00f702.PNG)
+![img](readme.assets/1728546-07405bc11f00f702.PNG)
 
  
 
@@ -3192,7 +3692,7 @@ C：23范式&BCNF是什么
   
   - 串行化（Serializable）：
 
-<img src="面经.assets/asynccode" alt="img" style="zoom:50%;" />
+<img src="readme.assets/asynccode" alt="img" style="zoom:50%;" />
 
 - Durability（持久性）：事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。
 
@@ -3205,7 +3705,7 @@ C：23范式&BCNF是什么
 | 可重复读取 （Repetable Read）         |             |                | √        |                                        |
 | 串行化 （Serializable）               |             |                |          |                                        |
 
-![img](面经.assets/asynccode)
+![img](readme.assets/asynccode)
 
 #### **脏读、不可重复读、幻读**
 
@@ -3334,7 +3834,7 @@ ORDER BY id;
 
 表测试数据：
 
-![img](面经.assets/20171209135012639)
+![img](readme.assets/20171209135012639)
 
 关键字：inner join on
 
@@ -3342,12 +3842,12 @@ ORDER BY id;
 
 执行结果：
 
-![img](面经.assets/20171209133941291)
+![img](readme.assets/20171209133941291)
 
 
 说明：组合两个表中的记录，返回关联字段相符的记录，也就是返回两个表的交集（阴影）部分。
 
-![img](面经.assets/20171209135846780)
+![img](readme.assets/20171209135846780)
 
 ### 二、左连接（左外连接）
 
@@ -3357,7 +3857,7 @@ ORDER BY id;
 
 执行结果：
 
-![img](面经.assets/20171209141445680)
+![img](readme.assets/20171209141445680)
 
 说明：
 
@@ -3365,7 +3865,7 @@ left join 是left outer join的简写，它的全称是左外连接，是外连�
 
 左(外)连接，左表(a_table)的记录将会全部表示出来，而右表(b_table)只会显示符合搜索条件的记录。右表记录不足的地方均为NULL。
 
-![img](面经.assets/20171209142610819)
+![img](readme.assets/20171209142610819)
 
 ### 三、右连接（右外连接）
 
@@ -3375,7 +3875,7 @@ left join 是left outer join的简写，它的全称是左外连接，是外连�
 
 执行结果：
 
-![img](面经.assets/20171209143426953)
+![img](readme.assets/20171209143426953)
 
 
 
@@ -3549,7 +4049,7 @@ innodb事务日志包括redo log和undo log。在概念上，innodb通过**force
 
 一个没加主键的表，它的数据**无序**的放置在磁盘存储器上，一行一行的排列的很整齐。如果给表上了主键，那么表在磁盘上的存储结构就由整齐排列的结构转变成了**树状结构**，也就是**平衡树结构**，换句话说，就是整个表就变成了一个索引，也就是所谓的**聚集索引**。 这就是为什么一个表只能有一个主键， 一个表只能有一个聚集索引，因为主键的作用就是把表的数据格式转换成索引（平衡树）的格式放置。
 
-![img](面经.assets/v2-11ad4e1d08351fed1bff6a9232c0b261_b.jpg)
+![img](readme.assets/v2-11ad4e1d08351fed1bff6a9232c0b261_b.jpg)
 
  上图就是带有主键的表（聚集索引）的结构图。其中树的所有结点（底部除外）的数据都是由主键字段中的数据构成，也就是通常我们指定主键的id字段。最下面部分是真正表中的数据。 假如我们执行一个SQL语句：
 
@@ -3559,7 +4059,7 @@ select * from table where id = 1256
 
  首先根据索引定位到1256这个值所在的叶结点，然后再通过叶结点取到id等于1256的数据行。 这里不讲解平衡树的运行细节， 但是从上图能看出，树一共有三层， 从根节点至叶节点只需要经过三次查找就能得到结果。如下图
 
-![img](面经.assets/v2-79cbb0688cb16b7242c012aa919eaf5b_b.jpg)
+![img](readme.assets/v2-79cbb0688cb16b7242c012aa919eaf5b_b.jpg)
 
 然而， 事物都是有两面的， 索引能让数据库查询数据的速度上升， 而使写入数据的速度下降，原因很简单的，**因为平衡树这个结构必须一直维持在一个正确的状态， 增删改数据都会改变平衡树各节点中的索引数据内容，破坏树结构， 因此，在每次数据改变时， DBMS必须去重新梳理树（索引）的结构以确保它的正确**，这会带来不小的性能开销，也就是为什么索引会给查询以外的操作带来副作用的原因。
 
@@ -3573,7 +4073,7 @@ select * from table where id = 1256
 
 非聚集索引和聚集索引一样， 同样是采用平衡树作为索引的数据结构。索引树结构中各节点的值来自于表中的索引字段， 假如给user表的name字段加上索引 ， 那么索引就是由name字段中的值构成，在数据改变时， DBMS需要一直维护索引结构的正确性。如果给表中多个字段加上索引 ， 那么就会出现多个独立的索引结构，**每个索引（非聚集索引）互相之间不存在关联**。 如下图
 
-![img](面经.assets/v2-9c21eca4e9f4e776e472523ace8379ab_b.jpg)
+![img](readme.assets/v2-9c21eca4e9f4e776e472523ace8379ab_b.jpg)
 
 **每次给字段建一个新索引， 字段中的数据就会被复制一份出来， 用于生成索引。 因此， 给表添加索引，会增加表的体积， 占用磁盘存储空间。**
 
@@ -3852,7 +4352,7 @@ B+树的性质(下面提到的都是和B树不相同的性质)：
 5. 非叶子节点相当于是叶子节点的索引(稀疏索引)，叶子节点相当于是存储(关键字)数据的数据层； 
 6. 更适合于文件系统；
 
-![img](面经.assets/640)
+![img](readme.assets/640)
 
 ==为什么说B+树比B树更适合数据库索引？==
 
@@ -3880,7 +4380,7 @@ B+树的性质(下面提到的都是和B树不相同的性质)：
 
 ## 数据库锁
 
-![img](面经.assets/v2-fab8c4a1871e59e11567f4a7407495e1_b.jpg)
+![img](readme.assets/v2-fab8c4a1871e59e11567f4a7407495e1_b.jpg)
 
 ### 锁的分类
 
@@ -4070,9 +4570,9 @@ InnoDB引擎并不会回滚大部分错误异常，但一旦侦测到死锁就�
 ​    InnoDB存储引擎在每行数据的后面添加了三个隐藏字段：
 
       1. **DB_TRX_ID**(6字节)：表示最近一次对本记录行作修改（insert | update）的事务ID。至于delete操作，InnoDB认为是一个update操作，不过会更新一个另外的删除位，将行表示为deleted。并非真正删除。
-
+    
       2. **DB_ROLL_PTR**(7字节)：回滚指针，指向当前记录行的undo log信息
-
+    
       3. **DB_ROW_ID**(6字节)：随着新行插入而单调递增的行ID。理解：当表没有主键或唯一非空索引时，innodb就会使用这个行ID自动产生聚簇索引。如果表有主键或唯一非空索引，聚簇索引就不会包含这个行ID了。**这个DB_ROW_ID跟MVCC关系不大**。
 
 #### **Read View 结构（重点）**
@@ -4111,7 +4611,7 @@ InnoDB引擎并不会回滚大部分错误异常，但一旦侦测到死锁就�
 
    4. 将该可见行的值返回。
 
-![img](面经.assets/20200413204733606.png)
+![img](readme.assets/20200413204733606.png)
 
 
 
@@ -4132,6 +4632,158 @@ InnoDB引擎并不会回滚大部分错误异常，但一旦侦测到死锁就�
 
 
 # 6 操作系统
+
+
+
+### 同步异步阻塞非阻塞
+
+[同步/异步，阻塞/非阻塞概念深度解析_萧萧的专栏-CSDN博客_阻塞](https://blog.csdn.net/lengxiao1993/article/details/78154467)
+
+
+
+**从进程级通信的维度讨论时， 阻塞和同步（非阻塞和异步）就是一对同义词。**
+
+- 阻塞式发送（blocking send）. 发送方进程会被一直阻塞， 直到消息被接受方进程收到。
+- 非阻塞式发送（nonblocking send）。 发送方进程调用 send() 后， 立即就可以其他操作。
+- 阻塞式接收（blocking receive） 接收方调用 receive() 后一直阻塞， 直到消息到达可用。
+- 非阻塞式接收（nonblocking receive） 接收方调用 receive() 函数后， 要么得到一个有效的结果， 要么得到一个空值， 即不会被阻塞。 
+
+
+
+**系统级别的 阻塞和同步的概念：**
+
+非阻塞I/O系统调用( nonblocking system call ) 和 **异步I/O系统调用 （asychronous system call）**的区别是：
+
+- 一个非阻塞I/O 系统调用 read() 操作立即返回的是任何可以立即拿到的数据， 可以是完整的结果， 也可以是不完整的结果， 还可以是一个空值。
+- 而异步I/O系统调用 read（）结果必须是完整的， 但是这个操作完成的通知可以延迟到将来的一个时间点。
+
+
+
+Java解决方式，用户级别线程：
+
+用户支持线程的解决方案基于非阻塞IO系统调用( non-blocking system call) ， 且是一种基于操作系统内核事件通知（event-driven）的解决方案， 基于这个流程, 可以引申到更为宽泛的 event-driven progreamming 话题上。 但是这里就不作赘述了。 
+
+
+
+阻塞/非阻塞， 同步/异步的概念要注意讨论的上下文：
+
+在进程通信层面， 阻塞/非阻塞， 同步/异步基本是同义词， 但是需要注意区分讨论的对象是发送方还是接收方。
+
+- 发送方阻塞/非阻塞（同步/异步）和接收方的阻塞/非阻塞（同步/异步） 是互不影响的。
+
+在 IO 系统调用层面（ IO system call ）层面， 非阻塞IO 系统调用 和 异步IO 系统调用存在着一定的差别， 它们都不会阻塞进程， 但是返回结果的方式和内容有所差别， 但是都属于非阻塞系统调用（ non-blocing system call ）
+
+非阻塞系统调用（non-blocking I/O system call 与 asynchronous I/O system call） 的存在可以用来实现线程级别的 I/O 并发， 与通过多进程实现的 I/O 并发相比可以减少内存消耗以及进程切换的开销。 
+
+
+
+### 死锁的条件
+
+1. 互斥条件：该资源任意一个时刻只由一个线程占用。
+2. 请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放。
+3. 不剥夺条件:线程已获得的资源在未使用完之前不能被其他线程强行剥夺，只有自己使用完毕后才释放资源。
+4. 循环等待条件:若干进程之间形成一种头尾相接的循环等待资源关系。
+
+
+
+
+
+## 网络--------------------
+
+### [2.2 为什么要三次握手](https://snailclimb.gitee.io/javaguide/#/docs/network/计算机网络?id=_22-为什么要三次握手)
+
+**三次握手的目的是建立可靠的通信信道，说到通讯，简单来说就是数据的发送与接收，而三次握手最主要的目的就是双方确认自己与对方的发送与接收是正常的。**
+
+第一次握手：Client 什么都不能确认；Server 确认了对方发送正常，自己接收正常
+
+第二次握手：Client 确认了：自己发送、接收正常，对方发送、接收正常；Server 确认了：对方发送正常，自己接收正常
+
+第三次握手：Client 确认了：自己发送、接收正常，对方发送、接收正常；Server 确认了：自己发送、接收正常，对方发送、接收正常
+
+所以三次握手就能确认双发收发功能都正常，缺一不可。
+
+
+
+### [2.5 为什么要四次挥手](https://snailclimb.gitee.io/javaguide/#/docs/network/计算机网络?id=_25-为什么要四次挥手)
+
+参考：敖丙的内容
+
+[为什么TCP4次挥手时等待为2MSL? - 知乎](https://www.zhihu.com/question/67013338/answer/248375813)
+
+
+
+1. 如果B没有收到自己的ACK，会超时重传FiN。那么A再次接到重传的FIN，会再次发送ACK
+2. 如果B收到自己的ACK，也不会再发任何消息，包括ACK
+3. 所以需要2个MSL，作为A的 wait_time。
+
+
+
+**第四个消息：A发出ACK，用于确认收到B的FIN**
+
+当B接收到此消息，即认为双方达成了同步：双方都知道连接可以释放了，此时B可以安全地释放此TCP连接所占用的内存资源、端口号。
+
+所以**被动关闭的B无需任何wait time，直接释放资源。**
+
+但，A并不知道B是否接到自己的ACK，A是这么想的：
+
+1）如果B没有收到自己的ACK，会超时重传FiN
+
+那么A再次接到重传的FIN，会再次发送ACK
+
+2）如果B收到自己的ACK，也不会再发任何消息，包括ACK
+
+无论是1还是2，A都需要等待，要取这两种情况等待时间的最大值，**以应对最坏的情况发生**，这个最坏情况是：
+
+去向ACK消息最大存活时间（MSL) + 来向FIN消息的最大存活时间(MSL)。
+
+这恰恰就是**2MSL( Maximum Segment Life)。**
+
+等待2MSL时间，A就可以放心地释放TCP占用的资源、端口号，**此时可以使用该端口号连接任何服务器。**
+
+
+
+### [HTTP长连接,短连接](https://snailclimb.gitee.io/javaguide/#/docs/network/计算机网络?id=八-http长连接短连接)
+
+[《HTTP长连接、短连接究竟是什么？》](https://www.cnblogs.com/gotodsp/p/6366163.html)
+
+1. 在HTTP/1.0中默认使用短连接。客户端和服务器每进行一次HTTP操作，就建立一次连接，任务结束就中断连接。当客户端浏览器访问的某个HTML或其他类型的Web页中包含有其他的Web资源（如JavaScript文件、图像文件、CSS文件等），每遇到这样一个Web资源，浏览器就会重新建立一个HTTP会话。
+2. 从HTTP/1.1起，默认使用长连接，用以保持连接特性。
+
+
+
+建议：
+
+1. **长连接**多用于操作频繁，点对点的通讯，而且连接数不能太多情况。数据库的连接用长连接， 如果用短连接频繁的通信会造成socket错误，而且频繁的socket 创建也是对资源的浪费。 
+2. 短链接：所以并发量大，但每个用户无需频繁操作情况下需用短连好。web服务，用长连接成千上万，长连接顶不住；2太浪费长连接资源。
+
+
+
+### 
+
+### [HTTP1.0、HTTP1.1 和 HTTP2.0 的区别](https://mp.weixin.qq.com/s/GICbiyJpINrHZ41u_4zT-A?)
+
+1. **长连接** : **在HTTP/1.0中，默认使用的是短连接**，也就是说每次请求都要重新建立一次连接。HTTP 是基于TCP/IP协议的,每一次建立或者断开连接都需要三次握手四次挥手的开销，如果每次请求都要这样的话，开销会比较大。因此最好能维持一个长连接，可以用个长连接来发多个请求。**HTTP 1.1起，默认使用长连接** ,默认开启Connection： keep-alive。 **HTTP/1.1的持续连接有非流水线方式和流水线方式** 。流水线方式是客户在收到HTTP的响应报文之前就能接着发送新的请求报文。与之相对应的非流水线方式是客户在收到前一个响应后才能发送下一个请求。
+2. **错误状态响应码** :在HTTP1.1中新增了24个错误状态响应码，如409（Conflict）表示请求的资源与资源的当前状态发生冲突；410（Gone）表示服务器上的某个资源被永久性的删除。
+3. **缓存处理** :在HTTP1.0中主要使用header里的If-Modified-Since,Expires来做为缓存判断的标准，HTTP1.1则引入了更多的缓存控制策略例如Entity tag，If-Unmodified-Since, If-Match, If-None-Match等更多可供选择的缓存头来控制缓存策略。
+4. **带宽优化及网络连接的使用** :HTTP1.0中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP1.1则在请求头引入了range头域，它允许只请求资源的某个部分，即返回码是206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。
+
+
+
+### TCP 和 UDP 的对比
+
+![img](readme.assets/(null)-20210331230311741.(null))
+
+
+
+### [五 在浏览器中输入url地址 ->> 显示主页的过程(面试常客)](https://snailclimb.gitee.io/javaguide/#/docs/network/计算机网络?id=五-在浏览器中输入url地址-gtgt-显示主页的过程面试常客)
+
+![img](readme.assets/(null)-20210331230311936.(null))
+
+
+
+
+
+
 
 ## 进程通信
 
@@ -4203,7 +4855,7 @@ select/epoll/e_poll：
 
 1、linux进程有4GB地址空间，如图所示：
 
-![img](面经.assets/20180721092710523)
+![img](readme.assets/20180721092710523)
 
 3G-4G大部分是共享的，是内核态的地址空间。这里存放整个内核的代码和所有的内核模块以及内核所维护的数据。
 
@@ -4502,7 +5154,7 @@ IO多路复用的视频讲解：https://www.bilibili.com/video/BV1qJ411w7du?from
 
 下图是一个典型的计算机结构图，计算机由CPU、存储器（内存）、网络接口等部件组成。了解epoll本质的**第一步**，要从**硬件**的角度看计算机怎样接收网络数据。
 
-![img](面经.assets/v2-e549406135abf440331de9dd8c3925e9_720w.jpg)
+![img](readme.assets/v2-e549406135abf440331de9dd8c3925e9_720w.jpg)
 
 下图展示了网卡接收数据的过程。在①阶段，网卡收到网线传来的数据；经过②阶段的硬件电路的传输；最终将数据写入到内存中的某个地址上（③阶段）。这个过程涉及到DMA传输、IO通路选择等硬件有关的知识，但我们只需知道：**网卡会把接收到的数据写入内存。**
 
@@ -4518,7 +5170,7 @@ IO多路复用的视频讲解：https://www.bilibili.com/video/BV1qJ411w7du?from
 
 一般而言，由硬件产生的信号需要cpu立马做出回应（不然数据可能就丢失），所以它的优先级很高。cpu理应中断掉正在执行的程序，去做出响应；当cpu完成对硬件的响应后，再重新执行用户程序。中断的过程如下图，和函数调用差不多。只不过函数调用是事先定好位置，而中断的位置由“信号”决定。
 
-![img](面经.assets/v2-89a9490f1d5c316167ff4761184239f7_720w.jpg)
+![img](readme.assets/v2-89a9490f1d5c316167ff4761184239f7_720w.jpg)
 
 以键盘为例，当用户按下键盘某个按键时，键盘会给cpu的中断引脚发出一个高电平。cpu能够捕获这个信号，然后执行键盘中断程序。下图展示了各种硬件通过中断与cpu交互。
 
@@ -4557,7 +5209,7 @@ printf(...)
 
 下图中的计算机中运行着A、B、C三个进程，其中进程A执行着上述基础网络程序，一开始，这3个进程都被操作系统的工作队列所引用，处于运行状态，会分时执行。
 
-![img](面经.assets/v2-2f3b71710f1805669a780a2d634f0626_720w.jpg)
+![img](readme.assets/v2-2f3b71710f1805669a780a2d634f0626_720w.jpg)
 
 工作队列中有A、B和C三个进程
 
@@ -4565,11 +5217,11 @@ printf(...)
 
 当进程A执行到创建socket的语句时，操作系统会创建一个由文件系统管理的socket对象（如下图）。这个socket对象包含了发送缓冲区、接收缓冲区、等待队列等成员。等待队列是个非常重要的结构，它指向所有需要等待该socket事件的进程。
 
-![img](面经.assets/v2-7ce207c92c9dd7085fb7b823e2aa5872_720w.jpg)
+![img](readme.assets/v2-7ce207c92c9dd7085fb7b823e2aa5872_720w.jpg)
 
 当程序执行到recv时，操作系统会将进程A从工作队列移动到该socket的等待队列中（如下图）。由于工作队列只剩下了进程B和C，依据进程调度，cpu会轮流执行这两个进程的程序，不会执行进程A的程序。**所以进程A被阻塞，不会往下执行代码，也不会占用cpu资源**。
 
-![img](面经.assets/v2-1c7a96c8da16f123388e46f88772e6d8_720w.jpg)
+![img](readme.assets/v2-1c7a96c8da16f123388e46f88772e6d8_720w.jpg)
 
 ps：操作系统添加等待队列只是添加了对这个“等待中”进程的引用，以便在接收到数据时获取进程对象、将其唤醒，而非直接将进程管理纳入自己之下。上图为了方便说明，直接将进程挂到等待队列之下。
 
@@ -4583,11 +5235,11 @@ ps：操作系统添加等待队列只是添加了对这个“等待中”进程
 
 如下图所示，进程在recv阻塞期间，计算机收到了对端传送的数据（步骤①）。数据经由网卡传送到内存（步骤②），然后网卡通过中断信号通知cpu有数据到达，cpu执行中断程序（步骤③）。此处的中断程序主要有两项功能，先将网络数据写入到对应socket的接收缓冲区里面（步骤④），再唤醒进程A（步骤⑤），重新将进程A放入工作队列中。
 
-![img](面经.assets/v2-696b131cae434f2a0b5ab4d6353864af_720w.jpg)
+![img](readme.assets/v2-696b131cae434f2a0b5ab4d6353864af_720w.jpg)
 
 唤醒进程的过程如下图所示。
 
-![img](面经.assets/v2-3e1d0a82cdc86f03343994f48d938922_720w.jpg)
+![img](readme.assets/v2-3e1d0a82cdc86f03343994f48d938922_720w.jpg)
 
 **以上是内核接收数据全过程**
 
@@ -4630,19 +5282,19 @@ while(1){
 
 select的实现思路很直接。假如程序同时监视如下图的sock1、sock2和sock3三个socket，那么在调用select之后，操作系统把进程A分别加入这三个socket的等待队列中。
 
-![img](面经.assets/v2-0cccb4976f8f2c2f8107f2b3a5bc46b3_720w.jpg)
+![img](readme.assets/v2-0cccb4976f8f2c2f8107f2b3a5bc46b3_720w.jpg)
 
 当任何一个socket收到数据后，中断程序将唤起进程。下图展示了sock2接收到了数据的处理流程。
 
 > ps：recv和select的中断回调可以设置成不同的内容。
 
-![img](面经.assets/v2-85dba5430f3c439e4647ea4d97ba54fc_720w.jpg)
+![img](readme.assets/v2-85dba5430f3c439e4647ea4d97ba54fc_720w.jpg)
 
 sock2接收到了数据，中断程序唤起进程A
 
 所谓唤起进程，就是将进程从所有的等待队列中移除，加入到工作队列里面。如下图所示。
 
-![img](面经.assets/v2-a86b203b8d955466fff34211d965d9eb_720w.jpg)
+![img](readme.assets/v2-a86b203b8d955466fff34211d965d9eb_720w.jpg)
 
 将进程A从所有等待队列中移除，再加入到工作队列里面
 
@@ -4666,7 +5318,7 @@ epoll是在select出现N多年后才被发明的，是select和poll的增强版�
 
 select低效的原因之一是将“维护等待队列”和“阻塞进程”两个步骤合二为一。如下图所示，每次调用select都需要这两步操作，然而大多数应用场景中，需要监视的socket相对固定，并不需要每次都修改。epoll将这两个操作分开，先用epoll_ctl维护等待队列，再调用epoll_wait阻塞进程。显而易见的，效率就能得到提升。
 
-![img](面经.assets/v2-5ce040484bbe61df5b484730c4cf56cd_720w.jpg)
+![img](readme.assets/v2-5ce040484bbe61df5b484730c4cf56cd_720w.jpg)
 
 相比select，epoll拆分了功能
 
@@ -4694,7 +5346,7 @@ while(1){
 
 select低效的另一个原因在于程序不知道哪些socket收到数据，只能一个个遍历。如果内核维护一个“就绪列表”，引用收到数据的socket，就能避免遍历。如下图所示，计算机共有三个socket，收到数据的sock2和sock3被rdlist（就绪列表）所引用。当进程被唤醒后，只要获取rdlist的内容，就能够知道哪些socket收到数据。
 
-![img](面经.assets/v2-5c552b74772d8dbc7287864999e32c4f_720w.jpg)
+![img](readme.assets/v2-5c552b74772d8dbc7287864999e32c4f_720w.jpg)
 
 #### epoll的原理和流程
 
@@ -4704,7 +5356,7 @@ select低效的另一个原因在于程序不知道哪些socket收到数据，�
 
 如下图所示，当某个进程调用epoll_create方法时，内核会创建一个eventpoll对象（也就是程序中epfd所代表的对象）。eventpoll对象也是文件系统中的一员，和socket一样，它也会有等待队列。
 
-![img](面经.assets/v2-e3467895734a9d97f0af3c7bf875aaeb_720w.jpg)
+![img](readme.assets/v2-e3467895734a9d97f0af3c7bf875aaeb_720w.jpg)
 
 创建一个代表该epoll的eventpoll对象是必须的，因为内核要维护“就绪列表”等数据，“就绪列表”可以作为eventpoll的成员。
 
@@ -4712,7 +5364,7 @@ select低效的另一个原因在于程序不知道哪些socket收到数据，�
 
 创建epoll对象后，可以用epoll_ctl添加或删除所要监听的socket。以添加socket为例，如下图，如果通过epoll_ctl添加sock1、sock2和sock3的监视，内核会将eventpoll添加到这三个socket的等待队列中。
 
-![img](面经.assets/v2-b49bb08a6a1b7159073b71c4d6591185_720w.jpg)
+![img](readme.assets/v2-b49bb08a6a1b7159073b71c4d6591185_720w.jpg)
 
 当socket收到数据后，中断程序会操作eventpoll对象，而不是直接操作进程。
 
@@ -4720,7 +5372,7 @@ select低效的另一个原因在于程序不知道哪些socket收到数据，�
 
 当socket收到数据后，中断程序会给eventpoll的“就绪列表”添加socket引用。如下图展示的是sock2和sock3收到数据后，中断程序让rdlist引用这两个socket。
 
-![img](面经.assets/v2-18b89b221d5db3b5456ab6a0f6dc5784_720w.jpg)
+![img](readme.assets/v2-18b89b221d5db3b5456ab6a0f6dc5784_720w.jpg)
 
 eventpoll对象相当于是socket和进程之间的中介，socket的数据接收并不直接影响进程，而是通过改变eventpoll的就绪列表来改变进程状态。
 
@@ -4730,11 +5382,11 @@ eventpoll对象相当于是socket和进程之间的中介，socket的数据接�
 
 假设计算机中正在运行进程A和进程B，在某时刻进程A运行到了epoll_wait语句。如下图所示，内核会将进程A放入eventpoll的等待队列中，阻塞进程。
 
-![img](面经.assets/v2-90632d0dc3ded7f91379b848ab53974c_720w.jpg)
+![img](readme.assets/v2-90632d0dc3ded7f91379b848ab53974c_720w.jpg)
 
 当socket接收到数据，中断程序一方面修改rdlist，另一方面唤醒eventpoll等待队列中的进程，进程A再次进入运行状态（如下图）。也因为rdlist的存在，进程A可以知道哪些socket发生了变化。
 
-![img](面经.assets/v2-40bd5825e27cf49b7fd9a59dfcbe4d6f_720w.jpg)
+![img](readme.assets/v2-40bd5825e27cf49b7fd9a59dfcbe4d6f_720w.jpg)
 
 #### epoll的实现细节
 
@@ -4744,7 +5396,7 @@ eventpoll对象相当于是socket和进程之间的中介，socket的数据接�
 
 如下图所示，eventpoll包含了lock、mtx、wq（等待队列）、rdlist等成员。rdlist和rbr是我们所关心的。
 
-![img](面经.assets/v2-e63254878f67751dcc07a25b93f974bb_720w.jpg)
+![img](readme.assets/v2-e63254878f67751dcc07a25b93f974bb_720w.jpg)
 
 
 
@@ -4764,7 +5416,7 @@ eventpoll对象相当于是socket和进程之间的中介，socket的数据接�
 
 epoll在select和poll（poll和select基本一样，有少量改进）的基础引入了eventpoll作为中间层，使用了先进的数据结构，是一种高效的多路复用技术。
 
-![img](面经.assets/v2-14e0536d872474b0851b62572b732e39_720w.jpg)
+![img](readme.assets/v2-14e0536d872474b0851b62572b732e39_720w.jpg)
 
 ## ==JAVA NIO==（IO多路复用）
 
@@ -4780,7 +5432,7 @@ NIO 实现了 IO 多路复用中的 Reactor 模型，一个线程 Thread 使用�
 
 应该注意的是，只有套接字 Channel 才能配置为非阻塞，而 FileChannel 不能，为 FileChannel 配置非阻塞也没有意义。
 
-![img](面经.assets/093f9e57-429c-413a-83ee-c689ba596cef.png)
+![img](readme.assets/093f9e57-429c-413a-83ee-c689ba596cef.png)
 
 
 
@@ -4995,11 +5647,11 @@ NIO：非阻塞IO，client注册channel，channel注册到选择器，服务端�
 
 **阻塞 IO ：**
 
-![图片](面经.assets/640)
+![图片](readme.assets/640)
 
 **非阻塞 IO ：**
 
-![图片](面经.assets/640)
+![图片](readme.assets/640)
 
 #### 同步（Synchronous）与异步（Asynchronous）
 
@@ -5015,11 +5667,11 @@ NIO：非阻塞IO，client注册channel，channel注册到选择器，服务端�
 
 **同步 IO ：**
 
-![图片](面经.assets/640)
+![图片](readme.assets/640)
 
 **异步 IO ：**
 
-![图片](面经.assets/640)
+![图片](readme.assets/640)
 
 ### Java BIO与NIO对比
 
@@ -5041,11 +5693,11 @@ NIO 是一种同步非阻塞的 I/O 模型，于 Java 1.4 中引入，对应 jav
 
 #### NIO 的 Server 通信的简单模型：
 
-![图片](面经.assets/640)
+![图片](readme.assets/640)
 
 #### BIO 的 Server 通信的简单模型：
 
-![图片](面经.assets/640)
+![图片](readme.assets/640)
 
 #### NIO的特点：
 
@@ -5056,15 +5708,15 @@ NIO 是一种同步非阻塞的 I/O 模型，于 Java 1.4 中引入，对应 jav
 
 #### 单线程的 Reactor 模型
 
-![图片](面经.assets/640)
+![图片](readme.assets/640)
 
 #### 多线程的 Reactor 模型
 
-![图片](面经.assets/640)
+![图片](readme.assets/640)
 
 #### 多线程主从 Reactor 模型
 
-![图片](面经.assets/640)
+![图片](readme.assets/640)
 
 ##  
 
@@ -5300,7 +5952,7 @@ MSS是每一个TCP报文段中的数据字段的最大长度。数据字段加�
 
 实时拥塞窗口大小是以字节为单位的。如下图：
 
-![img](面经.assets/20130801220358468)
+![img](readme.assets/20130801220358468)
 
 一次传输轮次之后拥塞窗口就加倍。这就是乘法增长，和后面的拥塞避免算法的加法增长比较。
 
@@ -5313,11 +5965,11 @@ MSS是每一个TCP报文段中的数据字段的最大长度。数据字段加�
 
 无论是在慢开始阶段还是在拥塞避免阶段，只要发送方判断网络出现拥塞（其根据就是没有收到确认，虽然没有收到确认可能是其他原因的分组丢失，但是因为无法判定，所以都当做拥塞来处理），就把慢开始门限设置为出现拥塞时的发送窗口大小的一半。然后把拥塞窗口设置为1，执行慢开始算法。如下图：
 
-![img](面经.assets/20130801220438375)
+![img](readme.assets/20130801220438375)
 
 快恢复算法，在出现拥塞之后将拥塞窗口设置为出现拥塞时拥塞窗口的一半，而不是直接降为1.
 
-![img](面经.assets/20130801220615250)
+![img](readme.assets/20130801220615250)
 
 #### 快重传
 
@@ -5337,7 +5989,7 @@ MSS是每一个TCP报文段中的数据字段的最大长度。数据字段加�
 
 在socket编程中，客户端执行connect()时，将触发三次握手。
 
-![img](面经.assets/v2-2a54823bd63e16674874aa46a67c6c72_b.jpg)
+![img](readme.assets/v2-2a54823bd63e16674874aa46a67c6c72_b.jpg)
 
 ### 为什么需要三次握手
 
@@ -5409,7 +6061,7 @@ SYN攻击就是Client在短时间内伪造大量不存在的IP地址，并向Ser
 
 在socket编程中，任何一方执行close()操作即可产生挥手操作。
 
-![img](面经.assets/v2-c7d4b5aca66560365593f57385ce9fa9_b.jpg)
+![img](readme.assets/v2-c7d4b5aca66560365593f57385ce9fa9_b.jpg)
 
 ### 为什么需要四次挥手？
 
@@ -5451,11 +6103,11 @@ TIME_WAIT状态也成为2MSL等待状态。每个具体TCP实现必须选择一�
 
 那只好做session 的复制了， 把session id 在两个机器之间搬来搬去， 快累死了。
 
-![img](面经.assets/v2-0820e192d7fed102203f131e5189cfb4_b.jpg)
+![img](readme.assets/v2-0820e192d7fed102203f131e5189cfb4_b.jpg)
 
 后来有个叫Memcached的支了招： 把session id 集中存储到一个地方， 所有的机器都来访问这个地方的数据， 这样一来，就不用复制了， 但是增加了单点失败的可能性， 要是那个负责session 的机器挂了， 所有人都得重新登录一遍， 估计得被人骂死。
 
-![img](面经.assets/v2-81c6a9f3edade4b8e276d182fb335704_b.jpg)
+![img](readme.assets/v2-81c6a9f3edade4b8e276d182fb335704_b.jpg)
 
 也尝试把这个单点的机器也搞出集群，增加可靠性， 但不管如何， 这小小的session 对我来说是一个沉重的负担。
 
@@ -5471,11 +6123,11 @@ TIME_WAIT状态也成为2MSL等待状态。每个具体TCP实现必须选择一�
 
 那就对数据做一个签名吧， 比如说我用HMAC-SHA256 算法，加上一个只有我才知道的密钥， 对数据做一个签名， 把这个签名和数据一起作为token ， 由于密钥别人不知道， 就无法伪造token了。
 
-![img](面经.assets/v2-0d0a12e065ec8a09137d01192cce875f_b.jpg)
+![img](readme.assets/v2-0d0a12e065ec8a09137d01192cce875f_b.jpg)
 
 这个token 我不保存， 当小F把这个token 给我发过来的时候，我再用同样的HMAC-SHA256 算法和同样的密钥，对数据再计算一次签名， 和token 中的签名做个比较， 如果相同， 我就知道小F已经登录过了，并且可以直接取到小F的user id ， 如果不相同， 数据部分肯定被人篡改过， 我就告诉发送者： 对不起，没有认证。
 
-![img](面经.assets/v2-ed6c8498fd74cc60f16f897922ee040e_b.jpg)
+![img](readme.assets/v2-ed6c8498fd74cc60f16f897922ee040e_b.jpg)
 
 Token 中的数据是明文保存的， 还是可以被别人看到的， 所以我不能在其中保存像密码这样的敏感信息。
 
@@ -5617,6 +6269,176 @@ if redis.set(key, tag, nx=True, ex=5):
 - AOF：将每一个写命令都追加到一个文件之后，重庆就重新执行这个文件，来回复数据。
 - RDB+AOF：是最安全的保存策略，定期备份，在定期和下一个定期之前进行增量备份。
 
+
+
+## Redis
+
+Redis 布隆过滤器：
+
+JavaGuide布隆过滤器：[JavaGuide](https://snailclimb.gitee.io/javaguide/#/docs/dataStructures-algorithms/data-structure/bloom-filter)
+
+[Redis详解(十三)------ Redis布隆过滤器 - YSOcean - 博客园](https://www.cnblogs.com/ysocean/p/12594982.html#_label2_0)
+
+1. 小规模数据，在大规模数据中判定存在：比如判断一个数字是否存在于包含大量数字的数字集中（数字集很大，5亿以上！）、 防止缓存穿透（判断请求的数据是否有效避免直接绕过缓存请求数据库）
+2. 去重：比如爬给定网址的时候对已经爬取过的 URL 去重。
+
+
+
+
+
+### 缓存雪崩、穿通、击穿
+
+因为内存是有限的，如果缓存中的所有数据都是一直保存的话，分分钟直接 Out of memory。
+
+Redis 自带了给缓存数据设置过期时间的功能
+
+
+
+ **1. 缓存雪崩** 
+
+![img](readme.assets/(null)-20210331230622657.(null))
+
+
+
+问题原因：redis缓存的key同一时间大量失效，导致大量请求全部打到数据库，造成数据库挂掉。 
+
+解决办法 
+
+- 随机设置缓存过期时间 
+- 定时刷新（设置3小时的过期时间） 
+- 设置多级缓存 
+
+
+
+**2. 缓存穿透** 
+
+![img](readme.assets/(null)-20210331230623146.(null))
+
+
+
+问题原因：用户请求redis中没有的数据，mysql中也没有，例如请求id=-1的数据，不断请求，使 
+
+mysql崩溃 
+
+解决方法 
+
+- 如果没查到，也设置一个缓存 
+- 布隆过滤器（推荐使用） 
+- 用户鉴权 
+
+**3. 缓存击穿**
+
+![img](readme.assets/(null)-20210331230622843.(null))
+
+
+
+问题原因：持续请求一个热点内容，缓存过期，突然失效，持续请求数据库 
+
+解决方法：
+
+- 热点永不过期 
+- 分布式锁（给请求数据库加上锁） 
+
+```
+package redis
+
+
+
+import java.io.IOException
+import java.util.concurrent.locks.ReentrantLock
+
+
+
+/**
+
+ * @Description
+ * @Author felix 
+ * @Date 2021/3/9 0:07 
+ * @Version 1.0 
+
+ */
+
+object CacheBreakoutSolution {
+
+  def getDataFromRedis(key: String) = ""
+
+
+
+  @throws[IOException]
+
+  def getDataFromMySQL(key: String) = ""
+
+
+
+  @throws[IOException]
+
+  def setDataToCache(key: String, value: String): Unit = {
+
+  }
+
+
+
+  @throws[IOException]
+
+  def getData(key: String): String = { // 从redis获取数据 
+
+    var result = getDataFromRedis(key) // 如果redis数据为空 
+
+    if (result == null) { // 加排他锁 
+
+      val lock = new ReentrantLock
+
+      if (lock.tryLock) {
+
+        result = getDataFromMySQL(key)
+
+        // 更新缓存 
+
+        if (result != null) setDataToCache(key, result)
+
+        lock.unlock()
+
+      }
+
+      else { // 未获取锁 
+
+        try {
+
+          Thread.sleep(100)
+
+          result = getData(key)
+
+        } catch {
+
+          case e: InterruptedException =>
+
+            e.printStackTrace()
+
+        }
+
+      }
+
+    }
+
+    result
+
+  }
+
+}
+```
+
+
+
+
+
+### [如何保证缓存和数据库数据的一致性](https://snailclimb.gitee.io/javaguide/#/docs/database/Redis/redis-all?id=_18-如何保证缓存和数据库数据的一致性？)
+
+guide没有讲的很好，请看：
+
+
+
+
+
 ### **缓存穿透**
 
 是什么：查询一个缓存中不存在的值，数据库中也不存在的值，所以每次请求必定命中数据库。从而可能把数据可也弄挂了。
@@ -5683,6 +6505,22 @@ if redis.set(key, tag, nx=True, ex=5):
 
 
 
+## IDEA
+
+
+
+
+
+
+
+# Spring
+
+[Spring事务的隔离级别_波波烤鸭的博客-CSDN博客_spring的事务隔离](https://blog.csdn.net/qq_38526573/article/details/87898730)
+
+事务隔离级别指的是一个事务对数据的修改与另一个并行的事务的隔离程度，当多个事务同时访问相同数据时，如果没有采取必要的隔离机制，就可能发生以下问题：脏读、幻读、不可重复读等。
+
+
+
 # 9 Linux 
 
 参考教程：
@@ -5732,7 +6570,7 @@ reboot //就是重启，等同于 shutdown –r now
 
 ## 关于目录结构
 
-![img](面经.assets/asynccode-1615810094952)
+![img](readme.assets/asynccode-1615810094952)
 
 
 
@@ -5770,7 +6608,7 @@ reboot //就是重启，等同于 shutdown –r now
 
 - 若是 **l** 则表示为链接文档(link file)；
 
-![img](面经.assets/asynccode-1615810094952)
+![img](readme.assets/asynccode-1615810094952)
 
 文件的属主、属组、根据用户不同对文件的不同的执行权限
 
@@ -5875,7 +6713,7 @@ man 是 manual 的缩写，将指令的具体信息显示出来。
 
 当执行 man date 时，有 DATE(1) 出现，其中的数字代表指令的类型，常用的数字及其类型如下：
 
-![img](面经.assets/asynccode-1615810094952)
+![img](readme.assets/asynccode-1615810094952)
 
 
 
@@ -5887,7 +6725,7 @@ info 与 man 类似，但是 info 将文档分成一个个页面，每个页面�
 
 ### 后台运行程序
 
-![img](面经.assets/asynccode-1615810094952)
+![img](readme.assets/asynccode-1615810094952)
 
 ### 查看进程状态
 
@@ -5917,61 +6755,17 @@ https://blog.csdn.net/skh2015java/article/details/94012643
 
 # 10 设计模式 & 场景
 
-## 单例模式
+优点：减少内存开支；降低系统开销。
 
-```java
-// 单例模式-双重校验锁
-public class SingleTon3 {
-    private SingleTon3(){};       //私有化构造方法
-    private static volatile SingleTon3 singleTon=null;
-    public static SingleTon3 getInstance(){
-        //第一次校验
-        if(singleTon==null){   
-            synchronized(SingleTon3.class){
-                //第二次校验
-                if(singleTon==null){   
-                    singleTon=new SingleTon3();
-                }
-            }
-        }
-        return singleTon;
-    }
-    public static void main(String[]args){
-        for(int i=0;i<200;i++){
-            new Thread(new Runnable() {
-                public void run() {
-                    System.out.println(Thread.currentThread().getName()+":"+SingleTon3.getInstance().hashCode());
-                }
-            }).start();
-        }
-    }
-}
-```
+缺点：
 
+* 一般没有接口，扩展很困难。因为接口对单例模式是没有任何意义的，它要求“自行实例化”，接口或抽象类是不可能被实例化的。
+* 单例模式对测试是不利的。在并行开发环境中，如果单例模式没有完成，是不能进行测试的，没有接口也不能使用mock的方式虚拟一个对象。
 
+使用场景：
 
- 
-
-注意事项：
-问题：为什么需要两次判断if(singleTon==null)?
-
-​	分析：第一次校验：由于单例模式只需要创建一次实例，如果后面再次调用getInstance方法时，则直接返回之前创建的实例，因此大部分时间不需要执行同步方法里面的代码，大大提高了性能。如果不加第一次校验的话，那跟上面的懒汉模式没什么区别，每次都要去竞争锁。
-
-​	 第二次校验：如果没有第二次校验，假设线程t1执行了第一次校验后，判断为null，这时t2也获取了CPU执行权，也执行了第一次校验，判断也为null。接下来t2获得锁，创建实例。这时t1又获得CPU执行权，由于之前已经进行了第一次校验，结果为null（不会再次判断），获得锁后，直接创建实例。结果就会导致创建多个实例。所以需要在同步代码里面进行第二次校验，如果实例为空，则进行创建。
-
-![image-20210104203831908](面经.assets/image-20210104203831908.png)
-
-　　需要注意的是，private static volatile SingleTon3 singleTon=null;需要加volatile关键字，否则会出现错误。问题的原因在于JVM指令重排优化的存在。在某个线程创建单例对象时，在构造方法被调用之前，就为该对象分配了内存空间并将对象的字段设置为默认值。此时就可以将分配的内存地址赋值给instance字段了，然而该对象可能还没有初始化。若紧接着另外一个线程来调用getInstance，取到的就是状态不正确的对象，程序就会出错。
-
-　　（4）静态内部类：同样也是利用了类的加载机制，它与饿汉模式不同的是，它是在内部类里面去创建对象实例。这样的话，只要应用中不使用内部类，JVM就不会去加载这个单例类，也就不会创建单例对象，从而实现懒汉式的延迟加载。也就是说这种方式可以同时保证延迟加载和线程安全。
-
-
-
-
-
-
-
-
+* 在整个项目中需要一个共享访问点或共享数据。
+* 创建一个对象需要消耗的资源过多，如要访问IO和数据库等资源。
 
 
 
@@ -6045,24 +6839,36 @@ public class Singleton{
 
 这种实现方式既可使实现线程安全的创建实例，又不会对性能造成太大的影响，**它只是在第一次创建实例的时候同步，以后就不需要同步了，从而加快运行速度**。
 
+注意事项：
+问题：为什么需要两次判断if(singleTon==null)?
+
+​	分析：第一次校验：由于单例模式只需要创建一次实例，如果后面再次调用getInstance方法时，则直接返回之前创建的实例，因此大部分时间不需要执行同步方法里面的代码，大大提高了性能。如果不加第一次校验的话，那跟上面的懒汉模式没什么区别，每次都要去竞争锁。
+
+​	 第二次校验：如果没有第二次校验，假设线程t1执行了第一次校验后，判断为null，这时t2也获取了CPU执行权，也执行了第一次校验，判断也为null。接下来t2获得锁，创建实例。这时t1又获得CPU执行权，由于之前已经进行了第一次校验，结果为null（不会再次判断），获得锁后，直接创建实例。结果就会导致创建多个实例。所以需要在同步代码里面进行第二次校验，如果实例为空，则进行创建。
+
+![image-20210104203831908](readme.assets/image-20210104203831908.png)
+
+　　需要注意的是，private static volatile SingleTon3 singleTon=null;需要加volatile关键字，否则会出现错误。问题的原因在于JVM指令重排优化的存在。在某个线程创建单例对象时，在构造方法被调用之前，就为该对象分配了内存空间并将对象的字段设置为默认值。此时就可以将分配的内存地址赋值给instance字段了，然而该对象可能还没有初始化。若紧接着另外一个线程来调用getInstance，取到的就是状态不正确的对象，程序就会出错。
+
+　　（4）静态内部类：同样也是利用了类的加载机制，它与饿汉模式不同的是，它是在内部类里面去创建对象实例。这样的话，只要应用中不使用内部类，JVM就不会去加载这个单例类，也就不会创建单例对象，从而实现懒汉式的延迟加载。也就是说这种方式可以同时保证延迟加载和线程安全。
 
 
 
+总结为什么需要 volatile 关键字呢？
 
-### 优点
+另外，需要注意 uniqueInstance 采用 volatile 关键字修饰也是很有必要。
 
-* 减少内存开支。
-* 降低系统开销。
+uniqueInstance 采用 volatile 关键字修饰也是很有必要的， uniqueInstance = new Singleton(); 这段代码其实是分为三步执行：
 
-### 缺点
+1. 为 uniqueInstance 分配内存空间
+2. 初始化 uniqueInstance
+3. 将 uniqueInstance 指向分配的内存地址
 
-* 一般没有接口，扩展很困难。因为接口对单例模式是没有任何意义的，它要求“自行实例化”，接口或抽象类是不可能被实例化的。
-* 单例模式对测试是不利的。在并行开发环境中，如果单例模式没有完成，是不能进行测试的，没有接口也不能使用mock的方式虚拟一个对象。
+但是由于 JVM 具有指令重排的特性，执行顺序有可能变成 1->3->2。指令重排在单线程环境下不会出现问题，但是在多线程环境下会导致一个线程获得还没有初始化的实例。例如，线程 T1 执行了 1 和 3，此时 T2 调用 getUniqueInstance() 后发现 uniqueInstance 不为空，因此返回 uniqueInstance，但此时 uniqueInstance 还未被初始化。
 
-### 使用场景
+使用 volatile 可以禁止 JVM 的指令重排，保证在多线程环境下也能正常运行。
 
-* 在整个项目中需要一个共享访问点或共享数据。
-* 创建一个对象需要消耗的资源过多，如要访问IO和数据库等资源。
+
 
 
 
@@ -6176,8 +6982,6 @@ public class Proxy implements Subject{
 
 
 
- 
-
 ## 生产者消费者
 
 ```java
@@ -6263,3 +7067,6 @@ public class SunProducerAndConsumer {
 IDEA复制项目Module出现java文件夹source root解决方法：https://www.liqinglin0314.com/article/335
 
 IDEA中maven聚合工程不识别子模块：https://blog.csdn.net/qq_37250199/article/details/103775303
+
+IDEA maven插件使用：https://www.javatt.com/p/85159
+
