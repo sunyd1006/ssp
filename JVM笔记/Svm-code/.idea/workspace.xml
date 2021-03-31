@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a8be727b-01ec-4816-a856-258907e546d0" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1lm2AKznB32AB2EDf5sx7F5R99Z" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.1891892" />
+    <property name="project.structure.side.proportion" value="0.22962226" />
+    <property name="settings.editor.selected.configurable" value="jprofiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="java.lang" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.OomForJprofiler">
+    <configuration name="HeapForJVM" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sun.HeapForJVM" />
+      <module name="Svm-code" />
+      <option name="VM_PARAMETERS" value="-Xms526m -Xmx1024m -Xlog:gc*   " />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sun.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HelloForOOM" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sun.HelloForOOM" />
+      <module name="Svm-code" />
+      <option name="VM_PARAMETERS" value="-Xms8m -Xmx16m -XX:+PrintGCDetails " />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sun.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OomForJprofiler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sun.OomForJprofiler" />
+      <module name="Svm-code" />
+      <option name="VM_PARAMETERS" value="-Xms1m -Xms2m -XX:+HeapDumpOnOutOfMemoryError" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sun.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="String" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="java.lang.String" />
+      <module name="Svm-code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Student" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Student" />
+      <module name="Svm-code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="java.lang.String" />
+      <module name="Svm-code" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.String" />
+      <item itemvalue="Application.Student" />
+      <item itemvalue="Application.HeapForJVM" />
+      <item itemvalue="Application.HelloForOOM" />
+      <item itemvalue="Application.OomForJprofiler" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.OomForJprofiler" />
+        <item itemvalue="Application.HelloForOOM" />
+        <item itemvalue="Application.HeapForJVM" />
+        <item itemvalue="Application.String" />
+        <item itemvalue="Application.Student" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a8be727b-01ec-4816-a856-258907e546d0" name="Default Changelist" comment="" />
+      <created>1608187800536</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608187800536</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="658" y="183" key="#Project_Structure" timestamp="1608187874449">
+      <screen x="0" y="0" width="1472" height="864" />
+    </state>
+    <state x="658" y="183" key="#Project_Structure/0.0.1472.864/0.-1080.1858.1080@0.0.1472.864" timestamp="1608187874449" />
+    <state x="580" y="-742" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608279282597">
+      <screen x="0" y="-1080" width="1858" height="1080" />
+    </state>
+    <state x="580" y="-742" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1472.864/0.-1080.1858.1080@0.-1080.1858.1080" timestamp="1608279282597" />
+    <state x="616" y="-777" key="#com.intellij.ide.util.MemberChooser" timestamp="1608269553123">
+      <screen x="0" y="-1080" width="1858" height="1080" />
+    </state>
+    <state x="616" y="-777" key="#com.intellij.ide.util.MemberChooser/0.0.1472.864/0.-1080.1858.1080@0.-1080.1858.1080" timestamp="1608269553123" />
+    <state x="488" y="242" key="#com.intellij.ide.util.MemberChooser/0.0.1472.864/0.-1080.1858.1080@0.0.1472.864" timestamp="1608187892983" />
+    <state x="658" y="-757" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1608269757074">
+      <screen x="0" y="-1080" width="1858" height="1080" />
+    </state>
+    <state x="658" y="-757" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1472.864/0.-1080.1858.1080@0.-1080.1858.1080" timestamp="1608269757074" />
+    <state x="426" y="466" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1608187869025">
+      <screen x="0" y="0" width="1472" height="864" />
+    </state>
+    <state x="426" y="466" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1472.864/0.-1080.1858.1080@0.0.1472.864" timestamp="1608187869025" />
+    <state x="651" y="-716" width="441" height="292" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1608269657784">
+      <screen x="0" y="-1080" width="1858" height="1080" />
+    </state>
+    <state x="651" y="-716" width="441" height="292" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1472.864/0.-1080.1858.1080@0.-1080.1858.1080" timestamp="1608269657784" />
+    <state x="516" y="291" width="439" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1472.864/0.-1080.1858.1080@0.0.1472.864" timestamp="1608188109140" />
+    <state x="473" y="202" key="FileChooserDialogImpl" timestamp="1608278585551">
+      <screen x="0" y="0" width="1472" height="864" />
+    </state>
+    <state x="473" y="202" key="FileChooserDialogImpl/0.0.1472.864/0.-1080.1858.1080@0.-1080.1858.1080" timestamp="1608278585551" />
+    <state width="1815" height="284" key="GridCell.Tab.0.bottom" timestamp="1608309927916">
+      <screen x="0" y="-1080" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="284" key="GridCell.Tab.0.bottom/0.0.1472.864/0.-1080.1858.1080@0.-1080.1858.1080" timestamp="1608309927916" />
+    <state width="1429" height="254" key="GridCell.Tab.0.bottom/0.0.1472.864/0.-1080.1858.1080@0.0.1472.864" timestamp="1608193015915" />
+    <state width="1815" height="284" key="GridCell.Tab.0.center" timestamp="1608309927915">
+      <screen x="0" y="-1080" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="284" key="GridCell.Tab.0.center/0.0.1472.864/0.-1080.1858.1080@0.-1080.1858.1080" timestamp="1608309927915" />
+    <state width="1429" height="254" key="GridCell.Tab.0.center/0.0.1472.864/0.-1080.1858.1080@0.0.1472.864" timestamp="1608193015915" />
+    <state width="1815" height="284" key="GridCell.Tab.0.left" timestamp="1608309927915">
+      <screen x="0" y="-1080" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="284" key="GridCell.Tab.0.left/0.0.1472.864/0.-1080.1858.1080@0.-1080.1858.1080" timestamp="1608309927915" />
+    <state width="1429" height="254" key="GridCell.Tab.0.left/0.0.1472.864/0.-1080.1858.1080@0.0.1472.864" timestamp="1608193015914" />
+    <state width="1815" height="284" key="GridCell.Tab.0.right" timestamp="1608309927915">
+      <screen x="0" y="-1080" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="284" key="GridCell.Tab.0.right/0.0.1472.864/0.-1080.1858.1080@0.-1080.1858.1080" timestamp="1608309927915" />
+    <state width="1429" height="254" key="GridCell.Tab.0.right/0.0.1472.864/0.-1080.1858.1080@0.0.1472.864" timestamp="1608193015915" />
+    <state x="193" y="106" width="998" height="708" key="SettingsEditor" timestamp="1608278895700">
+      <screen x="0" y="0" width="1472" height="864" />
+    </state>
+    <state x="193" y="106" width="998" height="708" key="SettingsEditor/0.0.1472.864/0.-1080.1858.1080@0.-1080.1858.1080" timestamp="1608278895700" />
+    <state x="526" y="-759" key="com.intellij.ide.util.TipDialog" timestamp="1608277864509">
+      <screen x="0" y="-1080" width="1858" height="1080" />
+    </state>
+    <state x="526" y="-759" key="com.intellij.ide.util.TipDialog/0.0.1472.864/0.-1080.1858.1080@0.-1080.1858.1080" timestamp="1608277864509" />
+    <state x="417" y="257" key="com.intellij.ide.util.TipDialog/0.0.1472.864/0.-1080.1858.1080@0.0.1472.864" timestamp="1608268688824" />
+  </component>
+</project>

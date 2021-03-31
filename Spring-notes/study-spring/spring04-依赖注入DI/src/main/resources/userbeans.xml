@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--p命名空间注入，可以直接注入属性的值：property-->
+    <bean id="user" class="com.kuang.pojo.User" p:name="张三" p:age="18"/>
+
+    <!--c命名空间注入，通过构造器注入：construct-args-->
+    <bean id="user2" class="com.kuang.pojo.User" c:age="18" c:name="李四" scope="prototype"/>
+</beans>

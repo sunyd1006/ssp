@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace=绑定一个对应的Dao/Mapper接口-->
+<mapper namespace="nuc.ss.dao.BookMapper">
+
+    <insert id="addBook" parameterType="Books">
+        insert into ssmbuild.books (bookName, bookCounts, detail)
+        values (#{bookName},#{bookCounts},#{detail});
+    </insert>
+
+    <delete id="deleteBookById">
+        delete from ssmbuild.books where bookID = #{bookID}
+    </delete>
+
+    <update id="updateBook" parameterType="Books">
+        update ssmbuild.books set bookName = #{bookName},bookCounts=#{bookCounts},detail=#{detail} 
+        where bookID = #{bookID};
+    </update>
+    
+    <select id="queryBookById" resultType="Books">
+        select * from ssmbuild.books where bookID = #{bookID};
+    </select>
+    
+    <select id="queryAllBooks" resultType="Books">
+        select * from ssmbuild.books;
+    </select>
+
+    <select id="queryBook" resultType="Books">
+        select * from ssmbuild.books where bookName like concat('%',#{bookName},'%');
+    </select>
+    <select id="queryBookByName" resultType="Books">
+        select * from ssmbuild.books where bookName = #{bookName};
+    </select>
+</mapper>
