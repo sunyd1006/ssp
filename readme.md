@@ -156,19 +156,11 @@ HTTP中GET，POST和PUT的区别：https://blog.csdn.net/qq_36183935/article/det
 
 TCP协议的可靠性保证：https://cloud.tencent.com/developer/article/1591989
 
-
-
 什么事线程安全的？[掘进的教程](https://juejin.im/post/6844903923116048397#heading-0)
 
 [ThreadLocal是什么](https://droidyue.com/blog/2016/03/13/learning-threadlocal-in-java/)
 
 实际上ThreadLocal的值，是放入了当前线程的一个ThreadLocalMap实例中，所以只能在本线程中访问，其他线程无法访问。
-
-
-
-- 
-
-
 
 
 
@@ -193,19 +185,13 @@ TCP协议的可靠性保证：https://cloud.tencent.com/developer/article/159198
 
 
 
-
-
-
-
-
-
 # 2 集合 & Java基础
 
 ## 集合类
 
 ### 概览
 
-![image-20201228112024559](readme.assets/image-20201228112024559.png)
+![image-20201228112024559分](readme.assets/image-20201228112024559.png)
 
 
 
@@ -331,8 +317,6 @@ put元素的流程？
 
 
 
-
-
 #### ==[ConcurrentHashMap](https://www.jianshu.com/p/865c813f2726)==
 
 资源：
@@ -350,12 +334,6 @@ video : https://www.bilibili.com/video/BV17i4y1x71z?from=search&seid=16806543830
 结构：1.7 Segment 数组 + HashEntry 数组 + 链表，用 concurrencyLevel 实现的分段锁，而1.8 是 Node 数组 + 链表 / 红黑树。
 
 如何线程安全：1.7 是分段锁每一个 Segment 上同时只有一个线程可以操作，1.8是  Synchronized + CAS + 自旋保证安全的
-
-
-
-
-
-
 
 
 
@@ -492,8 +470,6 @@ class Son extends Father {
 
 ## 面向对象
 
-
-
 方法参数：JAVA永远使用值传递！
 
 
@@ -614,10 +590,6 @@ Son son = new Parent(); //不合法
 
 
 
-
-
-
-
 ## Object类
 
 ### Objects类
@@ -691,8 +663,6 @@ Object 的 hashcode 方法是本地方法，也就是用 c 语言或 c++ 实现�
 ```
 public native int hashCode();
 ```
-
-
 
 引用类型中，equals()相等 和 hashCode()相等情况比较：
 
@@ -1201,7 +1171,9 @@ JVM基于进入和退出Monitor对象来实现方法同步和代码块同步, �
 
 参看：[3.3. ThreadLocal 原理](https://snailclimb.gitee.io/javaguide/#/docs/java/multi-thread/2020最新Java并发进阶常见面试题总结?id=_33-threadlocal-原理)
 
-<img src="readme.assets/(null)" alt="img" style="zoom:50%;" />
+<img src="readme.assets/image-20210413193430029.png" alt="image-20210413193430029" style="zoom:80%;" />
+
+
 
 #### [ThreadLocal 内存泄露问题](https://snailclimb.gitee.io/javaguide/#/docs/java/multi-thread/2020最新Java并发进阶常见面试题总结?id=_34-threadlocal-内存泄露问题)
 
@@ -2177,7 +2149,7 @@ JVM一般是这样使用锁和Mark Word的：
 
 
 
-![img](readme.assets/(null)-20210331230204330.(null))
+![img](readme.assets/20210331230204330.png)
 
 
 
@@ -3499,7 +3471,7 @@ B+树的性质(下面提到的都是和B树不相同的性质)：
 
 
 
-![img](readme.assets/640)
+![img](readme.assets/640.png)
 
 ==为什么说B+树比B树更适合数据库索引？==
 
@@ -4041,11 +4013,7 @@ SQL 等执行过程分为两类：
 
 [【思维导图-索引篇】搞定数据库索引就是这么简单](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247484848&idx=1&sn=77a0e6e82944ec385f5df17e91ce3bf2&chksm=cea24a7bf9d5c36d4b289cccb017292f9f36da9f3c887fd2b93ecd6af021fcf30121ba09799f&token=1082669959&lang=zh_CN&scene=21#wechat_redirect)
 
-![img](readme.assets/(null)-20210331230544011.(null))
-
-
-
-
+![img](readme.assets/20210331230544011.png)
 
 ## 事务
 
@@ -5766,7 +5734,7 @@ TCP则把数据流分割成适当长度的报文段，
 - TCP：有链接的；可靠的保证交互的；字节流的；有拥塞控制的；点对点的；
 - UDP：无连接的；尽最大努力交付的；面向数据包，报文的；无拥塞的；非点对点的；
 
-![img](readme.assets/(null)-20210331230311741.(null))
+![img](readme.assets/20210331230311741.png)
 
 
 
@@ -6064,7 +6032,7 @@ SYN攻击就是Client在短时间内伪造大量不存在的IP地址，并向Ser
 
 ### 
 
-![img](readme.assets/(null)-20210331230311936.(null))
+![img](readme.assets/20210331230311936.png)
 
 
 
@@ -6282,7 +6250,9 @@ Redis 自带了给缓存数据设置过期时间的功能
 
  **1. 缓存雪崩** 
 
-![img](readme.assets/(null)-20210331230622657.(null))
+![img](readme.assets/20210331230622657.png)
+
+
 
 
 
@@ -6298,9 +6268,7 @@ Redis 自带了给缓存数据设置过期时间的功能
 
 **2. 缓存穿透** 
 
-![img](readme.assets/(null)-20210331230623146.(null))
-
-
+![img](readme.assets/20210331230623146.png)
 
 问题原因：用户请求redis中没有的数据，mysql中也没有，例如请求id=-1的数据，不断请求，使 
 
@@ -6314,7 +6282,7 @@ mysql崩溃
 
 **3. 缓存击穿**
 
-![img](readme.assets/(null)-20210331230622843.(null))
+![img](readme.assets/20210331230622843.png)
 
 
 
