@@ -1,126 +1,11 @@
-#### TODO
-
-Java 线程池：https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html
-
-AQS：https://blog.csdn.net/qq_43778308/article/details/111084100
-
-【Java】说HashMap链表长度超过8就会转换成红黑树的出来挨打！
-：https://blog.csdn.net/qq_43771096/article/details/106434673
-
-生产者消费者：https://www.cnblogs.com/moongeek/p/7631447.html
-
-多个生产者，多个消费者：https://www.jianshu.com/p/ab013a4d5878
-
-
-
-发布订阅模式？？？
-
-CSnotes - read blocking 
-
-
-
-看Guide面试突击版设计到的知识：
-
-原子类的说法【guide，JUC中的Atomic原子类总结】：https://mp.weixin.qq.com/s/joa-yOiTrYF67bElj8xqvg
-
-推荐两篇 AQS 原理和相关源码分析的⽂章：
-
-http://www.cnblogs.com/waterystone/p/4920797.html
-
-https://www.cnblogs.com/chengxiao/archive/2017/07/24/7141160.html
-
-- CyclicBarrier：
-- CountDownLatch:
-
 ![image-20210105062147252](readme.assets/image-20210105062147252.png)
 
 
 
+# todo
 
-
-MVCC多版本并发控制：https://segmentfault.com/a/1190000012650596
-
-
-
-详细内容可以参考： MySQL锁机制简单了解⼀
-
-下：https://blog.csdn.net/qq_34337272/article/details/80611486
-
-**InnoDB**存储引擎的锁的算法有三种：
-
-Record lock：单个⾏记录上的锁
-
-Gap lock：间隙锁，锁定⼀个范围，不包括记录本身
-
-Next-key lock：record+gap 锁定⼀个范围，包含记录本身
-
-相关知识点：
-
-1. innodb对于⾏的查询使⽤next-key lock
-
-2. Next-locking keying为了解决Phantom Problem幻读问题
-
-3. 当查询的索引含有唯⼀属性时，将next-key lock降级为record key
-
-4. Gap锁设计的⽬的是为了阻⽌多个事务将记录插⼊到同⼀范围内，⽽这会导致幻读问题的产⽣
-
-5. 有两种⽅式显式关闭gap锁：（除了外键约束和唯⼀性检查外，其余情况仅使⽤record lock）
-
-A. 将事务隔离级别设置为RC B. 将参数innodb_locks_unsafe_for_binlog设置为1
-
-
-
-MySQL⼤表优化⽅案: https://segmentfault.com/a/1190000006158186
-
-⽣成全局 id 有下⾯这⼏种⽅式：
-
-**UUID**：不适合作为主键，因为太⻓了，并且⽆序不可读，查询效率低。⽐᫾适合⽤于⽣成唯⼀的
-
-名字的标示⽐如⽂件的名字。
-
-数据库⾃增 **id** : 两台数据库分别设置不同步⻓，⽣成不重复ID的策略来实现⾼可⽤。这种⽅式
-
-⽣成的 id 有序，但是需要独⽴部署数据库实例，成本⾼，还会有性能瓶颈。
-
-利⽤ **redis** ⽣成 **id :** 性能⽐᫾好，灵活⽅便，不依赖于数据库。但是，引⼊了新的组件造成
-
-系统更加复杂，可⽤性降低，编码更加复杂，增加了系统成本。
-
-**Twitter**的**snowflake**算法 ：Github 地址：https://github.com/twitter-archive/snowflake。
-
-美团的**Leaf**分布式**ID**⽣成系统 ：Leaf 是美团开源的分布式ID⽣成器，能保证全局唯⼀性、趋势
-
-递增、单调递增、信息安全，⾥⾯也提到了⼏种分布式⽅案的对⽐，但也需要依赖关系数据库、
-
-Zookeeper等中间件。感觉还不错。美团技术团队的⼀篇⽂章：https://tech.meituan.com/2017
-
-/04/21/mt-leaf.html 。
-
-
-
-
-
- ⼀条SQL语句在MySQL中如何执⾏的
-
-[⼀条SQL语句在MySQL中如何执⾏的](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485097&idx=1&sn=84c89da477b1338bdf3e9fcd65514ac1&chksm=cea24962f9d5c074d8d3ff1ab04ee8f0d6486e3d015cfd783503685986485c11738ccb542ba7&token=79317275&lang=zh_CN%23rd)
-
-4.1.16 MySQL⾼性能优化规范建议
-
-[MySQL⾼性能优化规范建议](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485117&idx=1&sn=92361755b7c3de488b415ec4c5f46d73&chksm=cea24976f9d5c060babe50c3747616cce63df5d50947903a262704988143c2eeb4069ae45420&token=79317275&lang=zh_CN%23rd)
-
-4.1.17⼀条SQL语句执⾏得很慢的原因有哪些？
-
-[腾讯⾯试：⼀条SQL语句执⾏得很慢的原因有哪些？---不看后悔系列](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485185&idx=1&sn=66ef08b4ab6af5757792223a83fc0d45&chksm=cea248caf9d5c1dc72ec8a281ec16aa3ec3e8066dbb252e27362438a26c33fbe842b0e0adf47&token=79317275&lang=zh_CN%23rd)
-
-4.1.19 后端程序员必备：书写⾼质量SQL的30条建议
-
-[后端程序员必备：书写⾼质量SQL的30条建议](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247486461&idx=1&sn=60a22279196d084cc398936fe3b37772&chksm=cea24436f9d5cd20a4fa0e907590f3e700d7378b3f608d7b33bb52cfb96f503b7ccb65a1deed&token=1987003517&lang=zh_CN%23rd)
-
-
-
-
-
-
+oom常见解决方式
+g1详细方案
 
 
 
@@ -139,28 +24,6 @@ Java基础知识补充（Java、操作系统、网络）：[file:///C:/Users/Sun
 程序员面试金典：https://weread.qq.com/web/reader/bf93256071a122bebf98d95kc20321001cc20ad4d76f5ae
 
 ![image-20201224114248856](readme.assets/image-20201224114248856.png)
-
-
-
-Cookie 和 Session的区别：
-
-https://blog.csdn.net/duan1078774504/article/details/51912868
-
-
-
-[Http中Post/Get/Put/Delete的区别](https://www.jianshu.com/p/62e56c53b1b9)、
-
-HTTP中GET，POST和PUT的区别：https://blog.csdn.net/qq_36183935/article/details/80570062
-
-
-
-TCP协议的可靠性保证：https://cloud.tencent.com/developer/article/1591989
-
-什么事线程安全的？[掘进的教程](https://juejin.im/post/6844903923116048397#heading-0)
-
-[ThreadLocal是什么](https://droidyue.com/blog/2016/03/13/learning-threadlocal-in-java/)
-
-实际上ThreadLocal的值，是放入了当前线程的一个ThreadLocalMap实例中，所以只能在本线程中访问，其他线程无法访问。
 
 
 
@@ -191,11 +54,11 @@ TCP协议的可靠性保证：https://cloud.tencent.com/developer/article/159198
 
 ### 概览
 
-![image-20201228112024559分](readme.assets/image-20201228112024559.png)
+<img src="readme.assets/image-20201228112024559.png" alt="image-20201228112024559分" style="zoom:50%;" />
 
 
 
-![image-20201228112432956](readme.assets/image-20201228112432956.png)
+<img src="readme.assets/image-20201228112432956.png" alt="image-20201228112432956" style="zoom:50%;" />
 
 
 
@@ -719,6 +582,23 @@ public native int hashCode();
 
 
 
+### 受检异常和非受检异常
+
+- 受检异常：除了RuntimeException以外的异常，都属于checkedException，它们都在java.lang库内部定义。Java编译器要求程序必须捕获或声明抛出这种异常。
+- 非受检异常：ClassNotFoundException, NullPointerException等等
+
+​	<img src="readme.assets/image-20210415234934946.png" alt="image-20210415234934946" style="zoom:50%;" />
+
+
+
+
+
+
+
+
+
+
+
 ## [注解狂神](https://www.bilibili.com/video/BV1p4411P7V3?p=17)
 
 建议读码：***
@@ -1045,6 +925,24 @@ public class GetTypeByReflection {
 BIO：阻塞IO
 
 NIO：非阻塞IO，client注册channel，channel注册到选择器，服务端的线程，通过selector来处理多个IO请求，而不必自己像阻塞IO一样阻塞、或者轮训去管理多个IO 请求，IO复用的方式提高了利用率。
+
+
+
+### BIO,NIO,AIO **有什么区别**?
+
+todo: NIO 编程
+
+**BIO (Blocking I/O):** 同步阻塞 I/O 模式，数据的读取写⼊必须阻塞在⼀个线程内等待其完成。在活动连接数不是特别⾼（⼩于单机 1000）的情况下，这种模型是⽐᫾不错的，可以让每⼀个连接专注于⾃⼰的 I/O 并且编程模型简单，也不⽤过多考虑系统的过载、限流等问题。线程池本身就是⼀个天然的漏⽃，可以缓冲⼀些系统处理不了的连接或请求。但是，当⾯对⼗万甚⾄百万级连接的时候，传统的 BIO 模型是⽆能为⼒的。因此，我们需要⼀种更⾼效的 I/O 处理模型来应对更⾼的并发量。
+
+
+
+**NIO (Non-blocking/New I/O):** NIO 是⼀种同步⾮阻塞的 I/O 模型，在 Java 1.4 中引⼊了NIO 框架，对应 java.nio 包，提供了 Channel , Selector，Buffer 等抽象。NIO 中的 N 可以理解为 Non-blocking，不单纯是 New。它⽀持⾯向缓冲的，基于通道的 I/O 操作⽅法。 NIO提供了与传统 BIO 模型中的 Socket 和 ServerSocket 相对应的 SocketChannel 和ServerSocketChannel 两种不同的套接字通道实现,两种通道都⽀持阻塞和⾮阻塞两种模式。阻塞模式使⽤就像传统中的⽀持⼀样，⽐᫾简单，但是性能和可靠性都不好；⾮阻塞模式正好与之相反。对于低负载、低并发的应⽤程序，可以使⽤同步阻塞 I/O 来提升开发速率和更好的维护性；对于⾼负载、⾼并发的（⽹络）应⽤，应使⽤ NIO 的⾮阻塞模式来开发
+
+
+
+**AIO (Asynchronous I/O):** AIO 也就是 NIO 2。在 Java 7 中引⼊了 NIO 的改进版 NIO 2,它是
+
+异步⾮阻塞的 IO 模型。异步 IO 是基于事件和回调机制实现的，也就是应⽤操作之后会直接返回，不会堵塞在那⾥，当后台处理完成，操作系统会通知相应的线程进⾏后续的操作。AIO 是异步 IO 的缩写，虽然 NIO 在⽹络操作中，提供了⾮阻塞的⽅法，但是 NIO 的 IO ⾏为还是同步的。对于 NIO 来说，我们的业务线程是在 IO 操作准备好时，得到通知，接着就由这个线程⾃⾏进⾏ IO 操作，IO 操作本身是同步的。查阅⽹上相关资料，我发现就⽬前来说 AIO 的应⽤还不是很⼴泛，Netty 之前也尝试使⽤过 AIO，不过⼜放弃了。
 
 
 
@@ -2141,7 +2039,7 @@ JVM一般是这样使用锁和Mark Word的：
 
 4，当线程B试图获得这个锁时，JVM发现同步锁处于偏向状态，但是Mark Word中的线程id记录的不是B，那么线程B会先用CAS操作试图获得锁，这里的获得锁操作是有可能成功的，因为线程A一般不会自动释放偏向锁。如果抢锁成功，就把Mark Word里的线程id改为线程B的id，代表线程B获得了这个偏向锁，可以执行同步锁代码。如果抢锁失败，则继续执行步骤5。
 
-5，偏向锁状态抢锁失败，代表当前锁有一定的竞争，偏向锁将升级为轻量级锁。JVM会在当前线程的线程栈中开辟一块单独的空间，里面保存指向对象锁Mark Word的指针，同时在对象锁Mark Word中保存指向这片空间的指针。上述两个保存操作都是CAS操作，如果保存成功，代表线程抢到了同步锁，就把Mark Word中的锁标志位改成00，可以执行同步锁代码。如果保存失败，表示抢锁失败，竞争太激烈，继续执行步骤6。
+5，偏向锁状态抢锁失败，代表当前锁有一定的竞争，偏向锁将升级为轻量级锁。JVM会在当前线程A的线程栈中开辟一块单独的空间，里面保存指向对象锁Mark Word的指针，同时在对象锁Mark Word中保存指向这片空间的指针。上述两个保存操作都是CAS操作，如果保存成功，代表线程抢到了同步锁，就把Mark Word中的锁标志位改成00，可以执行同步锁代码。如果保存失败，表示抢锁失败，竞争太激烈，继续执行步骤6。
 
 6，轻量级锁抢锁失败，JVM会使用自旋锁，自旋锁不是一个锁状态，只是代表不断的重试，尝试抢锁。从JDK1.7开始，自旋锁默认启用，自旋次数由JVM决定。如果抢锁成功则执行同步锁代码，如果失败则继续执行步骤7。
 
@@ -2462,7 +2360,7 @@ CMS收集器是一种以获取最短回收停顿时间为目标的收集器，CM
 
 初始标记：仅仅是标记一下GC roots 能直接关联的对象，速度很快  (何为GC roots :
 
-在Java语言中，可作为GC Roots的对象包括4种情况：
+**在Java语言中，可作为GC Roots的对象包括4种情况：**
 
   a) 虚拟机栈中引用的对象（栈帧中的本地变量表）；
 
@@ -2492,7 +2390,7 @@ CMS是一款优秀的收集器，它的主要优点是：并发收集、低停�
 
   2. CMS处理器无法处理浮动垃圾 
 
-   CMS在并发清理阶段线程还在运行， 伴随着程序的运行自然也会产生新的垃圾，这一部分垃圾产生在标记过程之后，CMS无法再当次过程中处理，所以只有等到下次gc时候在清理掉，这一部分垃圾就称作“浮动垃圾” ， 
+   **CMS在并发清理阶段线程还在运行， 伴随着程序的运行自然也会产生新的垃圾**，这一部分垃圾产生在标记过程之后，CMS无法再当次过程中处理，所以只有等到下次gc时候在清理掉，这一部分垃圾就称作“浮动垃圾” ， 
 
   3. CMS是基于“标记--清除”算法实现的，所以在收集结束的时候会有大量的空间碎片产生。空间碎片太多的时候，将会给大对象的分配带来很大的麻烦，往往会出现老年代还有很大的空间剩余，但是无法找到足够大的连续空间来分配当前对象的，只能提前触发 full gc。 
 
@@ -2500,31 +2398,7 @@ CMS是一款优秀的收集器，它的主要优点是：并发收集、低停�
 
 ------------------------------------------------------------------------------------------------------------------
 
-G1(Garbage First)是一款面向服务端应用的垃圾收集器。G1具备如下特点：
 
-5、G1运作步骤：
-
-**1、初始标记(stop the world事件 CPU停顿只处理垃圾)；**
-
-**2、并发标记(与用户线程并发执行)；**
-
-**3、最终标记(stop the world事件 ,CPU停顿处理垃圾)；**
-
-**4、筛选回收(stop the world事件 根据用户期望的GC停顿时间回收)(注意：CMS 在这一步不需要stop the world)（阿里问为何停顿时间可以设置，参考：**[G1 垃圾收集器架构和如何做到可预测的停顿(阿里)](https://www.cnblogs.com/aspirant/p/8663872.html)**）**
-
-**与其他GC收集器相比，G1具备如下特点：**
-
-1、并行于并发：G1能充分利用CPU、多核环境下的硬件优势，使用多个CPU（CPU或者CPU核心）来缩短stop-The-World停顿时间。部分其他收集器原本需要停顿[Java](http://lib.csdn.net/base/java)线程执行的GC动作，G1收集器仍然可以通过并发的方式让java程序继续执行。
-
-2、分代收集：虽然G1可以不需要其他收集器配合就能独立管理整个GC堆，但是还是保留了分代的概念。它能够采用不同的方式去处理新创建的对象和已经存活了一段时间，熬过多次GC的旧对象以获取更好的收集效果。
-
-3、空间整合：与CMS的“标记--清理”算法不同**，G1从整体来看是基于“标记整理”算法实现的收集器；从局部上来看是基于“复制”算法实现的**。
-
-4、可预测的停顿：这是G1相对于CMS的另一个大优势，降低停顿时间是G1和 CMS 共同的关注点，但 G1 除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为M毫秒的时间片段内，
-
- 
-
-上面几个步骤的运作过程和CMS有很多相似之处。初始标记阶段仅仅只是标记一下GC Roots能直接关联到的对象，并且修改TAMS的值，让下一个阶段用户程序并发运行时，能在正确可用的Region中创建新对象，这一阶段需要停顿线程，但是耗时很短，并发标记阶段是从GC Root开始对堆中对象进行可达性分析，找出存活的对象，这阶段时耗时较长，但可与用户程序并发执行。而最终标记阶段则是为了修正在并发标记期间因用户程序继续运作而导致标记产生变动的那一部分标记记录，虚拟机将这段时间对象变化记录在线程Remenbered Set Logs里面，最终标记阶段需要把Remembered Set Logs的数据合并到Remembered Set Logs里面，最终标记阶段需要把Remembered Set Logs的数据合并到Remembered Set中，这一阶段需要停顿线程，但是可并行执行。最后在筛选回收阶段首先对各个Region的回收价值和成本进行排序，根据用户所期望的GC停顿时间来制定回收计划。
 
 
 
@@ -2536,17 +2410,131 @@ G1(Garbage First)是一款面向服务端应用的垃圾收集器。G1具备如�
 
 
 
+**1) G1堆内存结构**
+
+堆内存会被切分成为很多个固定大小区域（Region），每个是连续范围的虚拟内存。
+
+堆内存中一个区域(Region)的大小可以通过-XX:G1HeapRegionSize参数指定，大小区间最小1M、最大32M，总之是2的幂次方。
+
+默认把堆内存按照2048份均分。
+
+**2) G1堆内存分配**
+
+每个Region被标记了E、S、O和H，这些区域在逻辑上被映射为Eden，Survivor和老年代。
+
+存活的对象从一个区域转移（即复制或移动）到另一个区域。区域被设计为并行收集垃圾，可能会暂停所有应用线程。
+
+如上图所示，区域可以分配到Eden，survivor和老年代。此外，还有第四种类型，被称为巨型区域（Humongous Region）。Humongous区域是为了那些存储超过50%标准region大小的对象而设计的，它用来专门存放巨型对象。如果一个H区装不下一个巨型对象，那么G1会寻找连续的H分区来存储。为了能找到连续的H区，有时候不得不启动Full GC。
+
+
+
+**G1回收流程**
+
+在执行垃圾收集时，G1以类似于CMS收集器的方式运行。
+
+1. **G1收集器的阶段分以下几个步骤：**
+
+<img src="readme.assets/v2-2658c595b28461db9d6c25ae99d41508_720w.jpg" alt="img" style="zoom:50%;" />
+
+**1）G1执行的第一阶段：初始标记(Initial Marking )**
+
+这个阶段是STW(Stop the World )的，所有应用线程会被暂停，标记出从GC Root开始直接可达的对象。
+
+**2）G1执行的第二阶段：并发标记**
+
+从GC Roots开始对堆中对象进行可达性分析，找出存活对象，耗时较长。当并发标记完成后，开始最终标记(Final Marking )阶段
+
+**3）最终标记**
+
+标记那些在并发标记阶段发生变化的对象，将被回收。
+
+**4）筛选回收**
+
+首先对各个Regin的回收价值和成本进行排序，根据用户所期待的GC停顿时间指定回收计划，回收一部分Region。
+
+最后，G1中提供了两种模式垃圾回收模式，Young GC和Mixed GC，两种都是Stop The World(STW)的。
+
+
+
+详细的使用方案：
+
+G1作为JDK9之后的服务端默认收集器，不再区分年轻代和老年代进行垃圾回收，G1默认把堆内存分为N个分区，每个1~32M(总是2的幂次方)。并且提供了四种不同Region标签 Eden 、 Survivor 、 Old 、 Humongous 。H区可以认为是Old区中一种特别专门用来存储大数据的，关于H区数据存储类型一般符合下面条件：
+
+当 0.5 Region <= 当对象大小 <= 1 Region 时候将数据存储到 H区
+
+当对象大小 > 1 Region 存储到连续的H区。
+
+<img src="readme.assets/image-20210416130706812.png" alt="image-20210416130706812" style="zoom:50%;" />
+
+同时G1中引入了 RememberSets 、 CollectionSets 帮助更好的执行GC 。
+
+1、 RememberSets ： **RSet** 记录了其他Region中的对象引用本Region中对象的关系，属于points-into结构（谁引用了我的对象）
+
+2、 CollectionSets ： **Csets** 是一次GC中需要被清理的regions集合，注意G1每次GC不是全部region都参与的，可能只清理少数几个，这几个就被叫做Csets。在GC的时候，对于old -> young 和old -> old的跨代对象引用，只要扫描对应的 **CSet** 中的 **RSet** 即可。
+
+G1进行GC的时候一般分为 Yang GC 跟 Mixed GC 。
+
+Young GC ： **CSet** 就是所有年轻代里面的Region
+
+Mixed GC ： **CSet** 是所有年轻代里的Region + 在全局并发标记阶段标记出来的收益高的Region
+
+
+
+<img src="readme.assets/image-20210416130723117.png" alt="image-20210416130723117" style="zoom:50%;" />
+
+标准的年轻代GC算法，整体思路跟CMS中类似。
+
+5.4.2、Mixed GC
+
 G1中是 **没** 有Old GC的，有一个把老年代跟新生代同时GC的 Mixed GC，它的 **回收流程** ：
 
 1、 初始标记 ： **是STW事件** ，其完成工作是标记GC ROOTS 直接可达的对象。标记位RootRegion。
 
-2、 根区域扫描 ： **不是STW事件** ，拿来RootRegion，扫描整个Old区所有Region，看每个Region的 **Rset** 中是否有RootRegion。有则标识出来。
+2、 根区域扫描 ： 不是STW事件 ，拿来RootRegion，扫描整个Old区所有Region，看每个Region的 **Rset** 中是否有RootRegion。有则标识出来。
 
-3、 并发标记 ： 同CMS并发标记 **不需要STW** ，遍历范围减少，在此只需要遍历 第二步 被标记到引用老年代的对象 RSet。
+3、 并发标记 ： 同CMS并发标记 不需要STW ，遍历范围减少，在此只需要遍历 第二步 被标记到引用老年代的对象 RSet。
 
-4、 最终标记 ： 同 CMS 重新标记 会STW ，用的 **SATB** 操作，速度更快。
+4、 最终标记 ： 同 CMS 重新标记 **会STW** ，用的 **SATB** 操作，速度更快。
 
 5、 清除 ： **STW操作** ，用 **复制清理算法** ，清点出有存活对象的Region和没有存活对象的Region(Empty Region)，更新Rset。把Empty Region收集起来到可分配Region队列。
+
+
+
+回收总结：
+
+1、经过global concurrent marking，collector就知道哪些Region有存活的对象。并将那些完全可回收的Region(没有存活对象)收集起来加入到可分配Region队列，实现对该部分内存的回收。对于有存活对象的Region，G1会根据统计模型找出收益最高、开销不超过用户指定的上限的若干Region进行对象回收。这些选中被回收的Region组成的集合就叫做collection set 简称Cset！
+
+2、在MIX GC中的Cset = 所有年轻代里的region + 根据global concurrent marking统计得出收集收益高的若干old region 。
+
+3、在YGC中的Cset = 所有年轻代里的region + 通过控制年轻代的region个数来控制young GC的开销 。
+
+4、YGC 与 MIXGC 都是采用多线程复制清理，整个过程会STW。 G1的 **低延迟原理** 在于其回收的区域变得精确并且范围变小了。
+
+G1提速点：
+
+1 **重新标记** 使X区域直接删除。
+
+2 **Rset** 降低了扫描的范围，上题中两点。
+
+3 重新标记阶段使用 **SATB** 速度比CMS快。
+
+4 清理过程为选取部分存活率低的Region进行清理，不是全部，提高了清理的效率。
+
+**总结：**
+
+就像你妈让你把自己卧室打扫干净，你可能只把显眼而比较大的垃圾打扫了，犄角旮旯的你没打扫。关于G1 还有很多细节其实没看到也。一句话总结G1思维： 每次选择性的清理大部分垃圾来保证时效性跟系统的正常运行 。
+
+
+
+**什么时候用G1 ?**
+
+如果应用程序使用CMS或ParallelOld垃圾回收器具有一个或多个以下特征，将有利于切换到G1：
+
+- Full GC持续时间太长或太频繁
+- 对象分配率或年轻代升级老年代很频繁
+- 不期望的很长的垃圾收集时间或压缩暂停（超过0.5至1秒）
+
+注意：如果你正在使用CMS或ParallelOld收集器，并且你的应用程序没有遇到长时间的垃圾收集暂停，则保持与您的当前收集器是很好的，升级JDK并不必要更新收集器为G1。
 
 
 
@@ -2854,7 +2842,7 @@ Java虚拟机规范对方法区的限制非常宽松，除了和Java堆一样不
 
 ### 复制算法
 
-为了解决效率问题，一种称为“复制”的收集算法出现了，它将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。这样使得每次都是对整个半区进行内存回收，内存分配时也就不用考虑内存碎片等复杂情况，只要移动堆顶指针，按顺序分配内存即可，实现简单，运行高效。只是这种算法的代价是将内存缩小为了原来的一半，未免太高了一点。
+为了解决效率问题，一种称为“复制”的收集算法出现了，**它将可用内存按容量划分为大小相等的两块，每次只使用其中的一块**。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。这样使得每次都是对整个半区进行内存回收，内存分配时也就不用考虑内存碎片等复杂情况，只要移动堆顶指针，按顺序分配内存即可，实现简单，运行高效。只是这种算法的代价是将内存缩小为了原来的一半，未免太高了一点。
 
 现在的商业虚拟机都采用这种收集算法来回收新生代，IBM公司的专门研究表明，新生代中的对象98%是“朝生夕死”的，所以并不需要按照1∶1的比例来划分内存空间，而是将内存分为一块较大的Eden空间和两块较小的Survivor空间，每次使用Eden和其中一块Survivor。当回收时，将Eden和Survivor中还存活着的对象一次性地复制到另外一块Survivor空间上，最后清理掉Eden和刚才用过的Survivor空间。HotSpot虚拟机默认Eden和Survivor的大小比例是8∶1，也就是每次新生代中可用内存空间为整个新生代容量的90% （80%+10%），只有10%的内存会被“浪费”。当然，98%的对象可回收只是一般场景下的数据，我们没有办法保证每次回收都只有不多于10%的对象存活，当Survivor空间不够用时，需要依赖其他内存（这里指老年代）进行分配担保。
 
@@ -3805,7 +3793,7 @@ InnoDB引擎并不会回滚大部分错误异常，但一旦侦测到死锁就�
     - 依然存在单表数据量过大的问题（需要水平拆分）
     - 事务处理复杂。
 
-水平分库（建议）、分表：
+#### **水平分库（建议）、分表**
 
 - 分片规则：应该时可以应用于分库、分表上面的？
 
@@ -3955,7 +3943,7 @@ SQL 等执行过程分为两类：
 
 2. 避免数据类型的隐式转换（会是索引失效）
 
-3. 充分利用表上已经存在的索引todo
+3. 充分利用表上已经存在的索引 todo
 
    > 避免使用双%号的查询条件。如：`a like '%123%'`，（如果无前置%,只有后置%，是可以用到列上的索引的）
    >
@@ -3981,7 +3969,7 @@ SQL 等执行过程分为两类：
 
 1.  超 100 万行的批量写 (UPDATE,DELETE,INSERT) 操作,要分批多次进行操作
     1.  ​	大批量操作可能会造成严重的主从延迟
-2.  对于大表使用 pt-online-schema-change 修改表结构
+2.  对于大表使用 `pt-online-schema-change ` 修改表结构
 3.  禁止为程序使用的账号赋予 super 权限
     1.  当达到最大连接数限制时，还运行 1 个有 super 权限的用户连接•super 权限只能留给 DBA 处理问题的账号使用
 4.  对于程序连接数据库账号,遵循权限最小原则
@@ -4179,9 +4167,9 @@ innodb事务日志包括redo log和undo log。在概念上，innodb通过**force
 
 
 
-### [多版本并发控制](https://blog.csdn.net/Waves___/article/details/105295060)
+### [多版本并发控制MVVC](https://blog.csdn.net/Waves___/article/details/105295060)
 
-推荐阅读：[MySQL-InnoDB-MVCC多版本并发控制](https://segmentfault.com/a/1190000012650596)
+# ==推荐阅读：[MySQL-InnoDB-MVCC多版本并发控制](https://segmentfault.com/a/1190000012650596)==
 
 参考文档：[MySQL中MVCC的正确打开方式（源码佐证）](https://blog.csdn.net/Waves___/article/details/105295060)
 
@@ -4790,6 +4778,10 @@ CREATE TABLE students
 
 # 6 操作系统 && 网络
 
+[CS-Notes：](http://www.cyc2018.xyz/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20-%20%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86.html#%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1)
+
+
+
 ## 简明背诵
 
 ### select/epoll/e_poll：
@@ -4826,13 +4818,15 @@ CREATE TABLE students
 
 从包含关系、开销、内存分配、系统拥有情况看：
 
-包含关系：没有线程的进程可以看做是单线程的，如果一个进程内有多个线程，则执行过程不是一条线的，而是多条线（线程）共同完成的；线程是进程的一部分，所以线程也被称为轻权进程或者轻量级进程。
+**包含关系**：没有线程的进程可以看做是单线程的，如果一个进程内有多个线程，则执行过程不是一条线的，而是多条线（线程）共同完成的；线程是进程的一部分，所以线程也被称为轻权进程或者轻量级进程。
 
-在开销方面：每个进程都有独立的代码和数据空间（程序上下文），程序之间的切换会有较大的开销；线程可以看做轻量级的进程，同一类线程共享代码和数据空间，每个线程都有自己独立的运行栈和程序计数器（PC），线程之间切换的开销小。
+**在开销方面**：每个进程都有独立的代码和数据空间（程序上下文），程序之间的切换会有较大的开销；线程可以看做轻量级的进程，同一类线程共享代码和数据空间，每个线程都有自己独立的运行栈和程序计数器（PC），线程之间切换的开销小。
 
-内存分配方面：系统在运行的时候会为每个进程分配不同的内存空间；而对线程而言，除了CPU外，系统不会为线程分配内存（线程所使用的资源来自其所属进程的资源），线程组之间只能共享资源。
+**相互影响上面**：同⼀进程中的线程极有可能会相互影响，而进程之间不会。
 
-所处环境：在操作系统中能同时运行多个进程（程序）；而在同一个进程（程序）中有多个线程同时执行（通过CPU调度，在每个时间片中只有一个线程执行）
+**内存分配方面**：系统在运行的时候会为每个进程分配不同的内存空间；而对线程而言，除了CPU外，系统不会为线程分配内存（线程所使用的资源来自其所属进程的资源），线程组之间只能共享资源。
+
+**所处环境**：在操作系统中能同时运行多个进程（程序）；而在同一个进程（程序）中有多个线程同时执行（通过CPU调度，在每个时间片中只有一个线程执行）
 
 
 
@@ -5572,6 +5566,144 @@ Web请求页面过程：
 
 ## HTTP
 
+[HTTP协议，一片就够了](https://www.jianshu.com/p/80e25cb1d81a)
+
+
+
+主要特点：
+
+- 简单快速：路径＋参数，就可以发送Https请求
+
+- 灵活：HTTP允许传输任意类型的数据对象，正在传输的类型由Content-Type加以标记。
+
+- 无连接：**无连接的含义是限制每次连接只处理一个请求**。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。
+
+- 无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。**缺少状态意味着如果后续处理需要前面的信息，则它必须重**传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。
+
+  
+
+URI 和 URL的区别：
+
+
+
+**HTTP之请求消息Request**
+
+![img](readme.assets/2964446-fdfb1a8fce8de946.png)
+
+```
+第一部分：请求行，第一行明了是post请求，以及http1.1版本。
+第二部分：请求头部，第二行至第六行。
+第三部分：空行，第七行的空行。
+第四部分：请求数据，第八行。
+
+
+POST / HTTP1.1
+Host:www.wrox.com
+User-Agent:Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)
+Content-Type:application/x-www-form-urlencoded
+Content-Length:40
+Connection: Keep-Alive
+
+name=Professional%20Ajax&publisher=Wiley
+```
+
+
+
+**HTTP之响应消息Response**
+
+```
+第1部分：状态行
+第2部分：消息报头
+第3部分：空行
+第4部分：正文
+
+HTTP/1.1 200 OK
+Date: Fri, 22 May 2009 06:07:21 GMT
+Content-Type: text/html; charset=UTF-8
+
+<html>
+      <head></head>
+      <body>
+            <!--body goes here-->
+      </body>
+</html>
+```
+
+
+
+
+
+**HTTP之状态码**
+
+状态代码有三位数字组成，第一个数字定义了响应的类别，共分五种类别:
+
+1xx：指示信息--表示请求已接收，继续处理
+
+2xx：成功--表示请求已被成功接收、理解、接受
+
+3xx：重定向--要完成请求必须进行更进一步的操作
+
+4xx：客户端错误--请求有语法错误或请求无法实现
+
+5xx：服务器端错误--服务器未能实现合法的请求
+
+
+
+
+
+### ==HTTP 请求/响应的步骤==
+
+1、客户端连接到Web服务器
+
+一个HTTP客户端，通常是浏览器，与Web服务器的HTTP端口（默认为80）建立一个TCP套接字连接。例如，[http://www.oakcms.cn](https://link.jianshu.com?t=http://www.oakcms.cn)。
+
+2、发送HTTP请求
+
+通过TCP套接字，客户端向Web服务器发送一个文本的请求报文，一个请求报文由请求行、请求头部、空行和请求数据4部分组成。
+
+3、服务器接受请求并返回HTTP响应
+
+Web服务器解析请求，定位请求资源。服务器将资源复本写到TCP套接字，由客户端读取。一个响应由状态行、响应头部、空行和响应数据4部分组成。
+
+==4、释放连接[TCP连接](https://www.jianshu.com/p/ef892323e68f)==
+
+若connection 模式为close，则服务器主动关闭[TCP连接](https://www.jianshu.com/p/ef892323e68f)，客户端被动关闭连接，释放[TCP连接](https://www.jianshu.com/p/ef892323e68f);
+
+==若connection 模式为keepalive，则该连接会保持一段时间，在该时间内可以继续接收请求==
+
+5、客户端浏览器解析HTML内容
+
+客户端浏览器首先解析状态行，查看表明请求是否成功的状态代码。然后解析每一个响应头，响应头告知以下为若干字节的HTML文档和文档的字符集。客户端浏览器读取响应数据HTML，根据HTML的语法对其进行格式化，并在浏览器窗口中显示。
+
+
+
+例如：在浏览器地址栏键入URL，按下回车之后会经历以下流程：
+
+1、浏览器向 DNS 服务器请求解析该 URL 中的域名所对应的 IP 地址;
+
+2、解析出 IP 地址后，根据该 IP 地址和默认端口 80，和服务器建立[TCP连接](https://www.jianshu.com/p/ef892323e68f);
+
+3、浏览器发出读取文件(URL 中域名后面部分对应的文件)的HTTP 请求，该请求报文作为 [TCP 三次握手](https://www.jianshu.com/p/ef892323e68f)的第三个报文的数据发送给服务器;
+
+4、服务器对浏览器请求作出响应，并把对应的 html 文本发送给浏览器;
+
+5、释放 [TCP连接](https://www.jianshu.com/p/ef892323e68f);
+
+6、浏览器将该 html 文本并显示内容;
+
+
+
+[GET和POST的区别](https://www.jianshu.com/p/80e25cb1d81a)
+
+1. GET提交的数据会放在URL之后，以?分割URL和传输数据，参数之间以&相连，如EditPosts.aspx?name=test1&id=123456.  POST方法是把提交的数据放在HTTP包的Body中.
+2. GET提交的数据大小有限制（因为浏览器对URL的长度有限制），而POST方法提交的数据没有限制.
+3. GET方式需要使用Request.QueryString来取得变量的值，而POST方式通过Request.Form来获取变量的值。
+4. GET方式提交数据，会带来安全问题，比如一个登录页面，通过GET方式提交数据时，用户名和密码将出现在URL上，如果页面可以被缓存或者其他人可以访问这台机器，就可以从历史记录获得该用户的账号和密码.
+
+
+
+
+
 https和http的区别。https的通信过程。除了证书之外，https是怎样加密保证通信安全的。
 
 - HTTPS加密，访问速度慢一点，同时收费。。。但他安全
@@ -5740,6 +5872,12 @@ TCP则把数据流分割成适当长度的报文段，
 
 
 
+如何保证可靠性的？
+
+TCP协议的可靠性保证：https://cloud.tencent.com/developer/article/1591989
+
+
+
 ### 可靠控制
 
 保证TCP的可靠性，通过**首部检验和、序列号、确认应答机制和超时重传机制**。
@@ -5807,7 +5945,7 @@ TCP则把数据流分割成适当长度的报文段，
 
 实时拥塞窗口大小是以字节为单位的。如下图：
 
-![img](readme.assets/20130801220358468)
+![img](readme.assets/20130801220358468.png)
 
 一次传输轮次之后拥塞窗口就加倍。这就是乘法增长，和后面的拥塞避免算法的加法增长比较。
 
@@ -5820,11 +5958,11 @@ TCP则把数据流分割成适当长度的报文段，
 
 无论是在慢开始阶段还是在拥塞避免阶段，只要发送方判断网络出现拥塞（其根据就是没有收到确认，虽然没有收到确认可能是其他原因的分组丢失，但是因为无法判定，所以都当做拥塞来处理），就把慢开始门限设置为出现拥塞时的发送窗口大小的一半。然后把拥塞窗口设置为1，执行慢开始算法。如下图：
 
-![img](readme.assets/20130801220438375)
+![img](readme.assets/20130801220438375.png)
 
 快恢复算法，在出现拥塞之后将拥塞窗口设置为出现拥塞时拥塞窗口的一半，而不是直接降为1.
 
-![img](readme.assets/20130801220615250)
+![img](readme.assets/20130801220615250.png)
 
 #### 快重传
 
@@ -5925,10 +6063,6 @@ SYN攻击就是Client在短时间内伪造大量不存在的IP地址，并向Ser
 
 
 
-- 
-
-  
-
 ## 四次挥手
 
 建立一个连接需要三次握手，而终止一个连接要经过四次挥手。这是由TCP的半关闭（half-close）造成的。所谓的半关闭，其实就是TCP提供了连接的一端在结束它的发送后还能接收来自另一端数据的能力。
@@ -6026,13 +6160,13 @@ SYN攻击就是Client在短时间内伪造大量不存在的IP地址，并向Ser
 
 
 
-### [从输入URL到页面加载发生了什么](https://segmentfault.com/a/1190000006879700)
+### [从输入URL到页面加载发生了](https://segmentfault.com/a/1190000006879700)
 
 [javaGuide 输入URL后发生了什么](https://snailclimb.gitee.io/javaguide/#/docs/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C?id=%e4%ba%94-%e5%9c%a8%e6%b5%8f%e8%a7%88%e5%99%a8%e4%b8%ad%e8%be%93%e5%85%a5url%e5%9c%b0%e5%9d%80-gtgt-%e6%98%be%e7%a4%ba%e4%b8%bb%e9%a1%b5%e7%9a%84%e8%bf%87%e7%a8%8b%e9%9d%a2%e8%af%95%e5%b8%b8%e5%ae%a2)
 
-### 
 
-![img](readme.assets/20210331230311936.png)
+
+<img src="readme.assets/20210331230311936.png" alt="img" style="zoom:50%;" />
 
 
 
@@ -6044,11 +6178,7 @@ TCP包头：
 
 
 
-<img src="readme.assets/各种协议与HTTP协议之间的关系.png" alt="各种协议与HTTP协议之间的关系" style="zoom:75%;" />
-
-
-
-
+<img src="readme.assets/各种协议与HTTP协议之间的关系.png" alt="各种协议与HTTP协议之间的关系" style="zoom: 50%;" />
 
 
 
@@ -6090,7 +6220,7 @@ BigPipe中的 Topic订阅 和 Queue 订阅的区别
 
 
 
-## Redis
+## [Redis](https://snailclimb.gitee.io/javaguide/#/docs/database/Redis/redis-all)
 
 跳跃表：
 
@@ -6130,7 +6260,7 @@ if redis.set(key, tag, nx=True, ex=5):
 
 
 
-## [Redis](https://snailclimb.gitee.io/javaguide/#/docs/database/Redis/redis-all)
+
 
 Redis 布隆过滤器：
 
@@ -6223,12 +6353,6 @@ LFU是最近最不常用页面置换算法(Least Frequently Used),也就是淘�
 
 
 
-
-
-
-
-
-
 zset 跳跃表：实现对链表的二分访问速度
 
 - 插入时，元素有一定概率上升到第二层，第2层升级第3层
@@ -6236,11 +6360,9 @@ zset 跳跃表：实现对链表的二分访问速度
 
 
 
-
-
-
-
 ### 缓存雪崩、穿透、击穿
+
+todo javaguide
 
 因为内存是有限的，如果缓存中的所有数据都是一直保存的话，分分钟直接 Out of memory。
 
@@ -6250,9 +6372,7 @@ Redis 自带了给缓存数据设置过期时间的功能
 
  **1. 缓存雪崩** 
 
-![img](readme.assets/20210331230622657.png)
-
-
+<img src="readme.assets/20210331230622657.png" alt="img" style="zoom:50%;" />
 
 
 
@@ -6268,7 +6388,7 @@ Redis 自带了给缓存数据设置过期时间的功能
 
 **2. 缓存穿透** 
 
-![img](readme.assets/20210331230623146.png)
+<img src="readme.assets/20210331230623146.png" alt="img" style="zoom:50%;" />
 
 问题原因：用户请求redis中没有的数据，mysql中也没有，例如请求id=-1的数据，不断请求，使 
 
@@ -6282,7 +6402,7 @@ mysql崩溃
 
 **3. 缓存击穿**
 
-![img](readme.assets/20210331230622843.png)
+<img src="readme.assets/20210331230622843.png" alt="img" style="zoom:50%;" />
 
 
 
@@ -6293,7 +6413,7 @@ mysql崩溃
 - 热点永不过期 
 - 分布式锁（给请求数据库加上锁） 
 
-```
+```scala
 package redis
 
 import java.io.IOException
@@ -6318,51 +6438,28 @@ object CacheBreakoutSolution {
   }
 
   @throws[IOException]
-
   def getData(key: String): String = { // 从redis获取数据 
-
     var result = getDataFromRedis(key) // 如果redis数据为空 
-
     if (result == null) { // 加排他锁 
-
       val lock = new ReentrantLock
-
       if (lock.tryLock) {
-
         result = getDataFromMySQL(key)
-
         // 更新缓存 
-
         if (result != null) setDataToCache(key, result)
-
         lock.unlock()
-
-      }
-
+     }
       else { // 未获取锁 
-
         try {
-
           Thread.sleep(100)
-
           result = getData(key)
-
         } catch {
-
           case e: InterruptedException =>
-
             e.printStackTrace()
-
         }
-
       }
-
     }
-
     result
-
   }
-
 }
 ```
 
@@ -6373,8 +6470,6 @@ object CacheBreakoutSolution {
 ### [如何保证缓存和数据库数据的一致性](https://snailclimb.gitee.io/javaguide/#/docs/database/Redis/redis-all?id=_18-如何保证缓存和数据库数据的一致性？)
 
 guide没有讲的很好，请看：
-
-
 
 
 
@@ -6467,239 +6562,7 @@ guide没有讲的很好，请看：
 
 
 
-# 9 Linux 
-
-参考教程：
-
-[Linux 教程（菜鸟）](https://www.runoob.com/linux/linux-tutorial.html)
-
-[cyc2018linux教程](https://cyc2018.github.io/CS-Notes/#/notes/Linux?id=一、常用操作以及概念)
-
-
-
-  有时候需要配置ubuntu安装的软件，一般安装软件都是使用apt-get install。那么安装完后，软件的安装目录在哪里呢，可执行文件又放在哪里呢。
-
-  A、下载的软件的存放位置：/var/cache/apt/archives
-
-  B、安装后软件的默认位置：/usr/share
-
-  C、可执行文件位置：/usr/bin
-
-  D、配置文件位置：/etc
-
-   E、lib文件位置：/usr/lib
-
-
-
-
-
-## 启动过程
-
-1. BIOS引导程序启动。首先是BIOS开机自检，按照BIOS中设置的启动设备（通常是硬盘）来启动
-
-1. /boot目录下的读取linux内核。操作系统接管硬件以后，首先读入 /boot 目录下的内核文件
-
-1. init进程启动。init 进程是系统所有进程的起点
-
-1. 根据“运行级别”执行不同的启动程序。启动时根据"运行级别"，确定要运行哪些程序
-
-1. 建立了6个tty终端。在inittab中的以下6行就是定义了6个终端
-
-1. 用户系统登录，tty登录 & 图形界面（ctrl+alt+7）
-
-1. 关机与重启
-
-```
-shutdown –h now // 立马关机
-reboot //就是重启，等同于 shutdown –r now
-```
-
-## 关于目录结构
-
-![img](readme.assets/asynccode-1615810094952)
-
-
-
-**/opt**：opt 是 optional(可选) 的缩写，这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。
-
-
-
-**/bin：**bin 是 Binaries (二进制文件) 的缩写, 这个目录存放着最经常使用的命令。
-
-
-
-**/usr**： usr 是 unix shared resources(共享资源) 的缩写，这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于 windows 下的 program files 目录。
-
-- - **/usr/bin：****系统用户**使用的应用程序。
-
-- - **/usr/sbin：****超级用户**使用的比较高级的管理程序和系统守护程序。
-
-- - **/usr/src：**内核源代码默认的放置目录。
-
-
-
-**/proc**：proc 是 Processes(进程) 的缩写，/proc 是一种伪文件系统（也即虚拟文件系统），存储的是当前内核运行状态的一系列特殊文件，这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件，比如可以通过下面的命令来屏蔽主机的ping命令，使别人无法ping你的机器：
-
-
-
-**/etc：**etc 是 Etcetera(等等) 的缩写，**这个目录用来存放所有的系统管理所需要的配置文件和子目录。**
-
-
-
-## 文件的基本属性
-
-- 当为 **d** 则是目录
-
-- 当为 **-** 则是文件；
-
-- 若是 **l** 则表示为链接文档(link file)；
-
-![img](readme.assets/asynccode-1615810094952)
-
-文件的属主、属组、根据用户不同对文件的不同的执行权限
-
-```
-chgrp [-R] 属组名 文件名
-
-chown [–R] 属主名 文件名
-chown [-R] 属主名：属组名 文件名
-
-# 改变文件的权限 user, group, other, all
-chmod 777 .bashrc
-chmod u=rwx,g=rx,o=r  test1    // 修改 test1 权限
-chmod  a-x test1
-```
-
-## 文件与目录管理
-
-ls/mkdir/rmdir/cp/rm/mv/rename
-
-```
-mkdir -p test1/test2/test3/test4
-
-// -P ：显示出确实的路径，而非使用连结 (link) 路径。
-
-# 备份文件一定要用这个，不然就凉了了
-cp -a sourcefilename tofilename
-```
-
-### 文件内容的查看
-
-```
-// 查看全文 cat filename 
-
-// 查看倒叙文件 tac filename 
-
-// nl查看 nl /etc/issue 
-
-// more 和less的命令一样 空白先后，b向前 q退出（quit) 
-
-// less好用 less filename head filename head -n 10 filename tail filename tail -n 10 filename 
-```
-
-
-
-### [文件定位](https://zhuanlan.zhihu.com/p/35727707)
-
-1. **which**：常用于查找可直接执行的命令。只能查找可执行文件，该命令基本只在$PATH路径中搜索，查找范围最小，查找速度快。默认只返回第一个匹配的文件路径，通过选项 *-a* 可以返回所有匹配结果。
-
-1. **whereis**：不只可以查找命令，其他文件类型都可以（man中说只能查命令、源文件和man文件，实际测试可以查大多数文件）。在$PATH路径基础上增加了一些系统目录的查找，查找范围比which稍大，查找速度快。可以通过 *-b* 选项，限定只搜索二进制文件。
-
-1. **locate**：超快速查找任意文件。它会从linux内置的索引数据库查找文件的路径，索引速度超快。刚刚新建的文件可能需要一定时间才能加入该索引数据库，可以通过执行updatedb命令来强制更新一次索引，这样确保不会遗漏文件。该命令通常会返回大量匹配项，可以使用 *-r* 选项通过正则表达式来精确匹配。
-
-1. **find**：直接搜索整个文件目录，默认直接从根目录开始搜索，建议在以上命令都无法解决问题时才用它，功能最强大但速度超慢。除非你指定一个很小的搜索范围。通过 *-name* 选项指定要查找的文件名，支持通配符。
-
-```
-tarena@tedu:/$ which -a ls
-/bin/ls
-
-tarena@tedu:~$ locate -r '\bls$'
-
-tarena@tedu:~$ find ~ /bin/ -name ls
-/home/tarena/ls
-/bin/ls
-```
-
-## 用户和用户组管理
-
-关于linux系统用户的修改
-
-1. 添加删除用户
-
-1. 为用户设置口令
-
-1. 为root设置口令。普通用户修改自己的口令时，passwd命令会先询问原口令，验证后再要求用户输入两遍新口令，如果两次输入的口令一致，则将这个口令指定给用户；而超级用户为用户指定口令时，就不需要知道原口令。
-
-
-
-
-
-关于linux系统用户组的修改，就是该/etc/group文件的更新
-
-## 磁盘管理
-
-Linux磁盘管理好坏直接关系到整个系统的性能问题。
-
-```
-// 列出文件系统的整体磁盘使用量
-df -h
-```
-
-[linux命令大全](https://www.runoob.com/linux/linux-comm-bunzip2.html)
-
-## 命令求助
-
-[1. --help](https://cyc2018.github.io/CS-Notes/#/notes/Linux?id=_1-help)
-
-指令的基本用法与选项介绍。
-
-[2. man](https://cyc2018.github.io/CS-Notes/#/notes/Linux?id=_2-man)
-
-man 是 manual 的缩写，将指令的具体信息显示出来。
-
-当执行 man date 时，有 DATE(1) 出现，其中的数字代表指令的类型，常用的数字及其类型如下：
-
-![img](readme.assets/asynccode-1615810094952)
-
-
-
-[3. info](https://cyc2018.github.io/CS-Notes/#/notes/Linux?id=_3-info)
-
-info 与 man 类似，但是 info 将文档分成一个个页面，每个页面可以跳转。
-
-## 进程详情
-
-### 后台运行程序
-
-![img](readme.assets/asynccode-1615810094952)
-
-### 查看进程状态
-
-```
-// all user x(完整的)信息，用管道less显示，
-ps -aux | less
-
-// 查看特定进程
-ps aux | grep threadx
-
-// 查看进程端口
-netstat -anp | grep port
-
-// 查看打开了8080端口的文件
-losf -i:8080
-```
-
-
-
-Systemctl：利用Systemmd来管理linux系统中的服务。启动服务；设置开机启动等
-
-https://blog.csdn.net/skh2015java/article/details/94012643
-
-
-
-
-
-# 10 设计模式 & 场景
+# 9 设计模式 & 场景
 
 优点：减少内存开支；降低系统开销。
 
@@ -6820,7 +6683,15 @@ uniqueInstance 采用 volatile 关键字修饰也是很有必要的， uniqueIns
 
 ## 工厂模式
 
+**优点**
+
+* 对象创建是有条件约束的，如一个调用者需要一个具体的产品对象，只要知道这个产品的类名（或约束字符串）就可以了，不用知道创建对象的艰辛过程，降低模块间的耦合。
+* 扩展性非常优秀。在增加产品类的情况下，只要适当地修改具体的工厂类或扩展一个工厂类，就可以完成“拥抱变化”。
+* 屏蔽产品类。这一特点非常重要，产品类的实现如何变化，调用者都不需要关心，它只需要关心产品的接口，只要接口保持不变，系统中的上层模块就不要发生变化。
+
 > 定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。
+
+
 
 **抽象产品类**
 
@@ -6877,12 +6748,6 @@ public class client{
 }
 ```
 
-### 优点
-
-* 对象创建是有条件约束的，如一个调用者需要一个具体的产品对象，只要知道这个产品的类名（或约束字符串）就可以了，不用知道创建对象的艰辛过程，降低模块间的耦合。
-* 扩展性非常优秀。在增加产品类的情况下，只要适当地修改具体的工厂类或扩展一个工厂类，就可以完成“拥抱变化”。
-* 屏蔽产品类。这一特点非常重要，产品类的实现如何变化，调用者都不需要关心，它只需要关心产品的接口，只要接口保持不变，系统中的上层模块就不要发生变化。
-
 
 
 ## 代理模式
@@ -6928,7 +6793,15 @@ public class Proxy implements Subject{
 
 
 
-## 生产者消费者
+## 系统设计题目
+
+[系统设计](https://soulmachine.gitbooks.io/system-design/content/cn/)
+
+[十道海量数据处理面试题与十个方法大总结](https://blog.csdn.net/v_july_v/article/details/6279498)
+
+
+
+### 生产者消费者
 
 ```java
 import java.util.*;
@@ -7004,6 +6877,253 @@ public class SunProducerAndConsumer {
 
 
 
+### 分布式ID
+
+ID生成的三大核心需求：
+
+- 全局唯一(unique)
+- 按照时间粗略有序(sortable by time)
+- 尽可能短
+
+
+
+UUID：12字节，时间戳，机器ID，进程ID，计数器组成。
+
+- 非时间有序
+
+多台MySQL服务器：
+
+- 不同起始值，开始递增。2台服务器，2台分别以1，2起始，分别递增2；3台服务器，1,2,3分别递增3
+
+Twitter Snowflake：
+
+
+
+### [短网址系统（TinyURL）](https://soulmachine.gitbooks.io/system-design/content/cn/tinyurl.html)
+
+1. 45亿网址，大写+小写+数字，62也一定满足个数字，62^7 足够表示那么多网址。继而可以长变短网址
+2. 一个长网址对应几个短网址？1对多，多个短URL可以进行特定数据的信息分析。
+3. 如何计算短网址。[分布式发号器](https://soulmachine.gitbooks.io/system-design/content/cn/distributed-id-generator.html)
+
+
+
+### 大数据
+
+[一个小时内访问频率最高的10个IP](https://soulmachine.gitbooks.io/system-design/content/cn/top-k-frequent-ip-in-one-hour.html)
+
+1. 10 0000 * 3600 = 2^29，大约占据2^29 * 8 字节， 4GB数据，单机还行。
+2.  3600个 HashMap<Integer, Integer> , IP 为key， Count 为Value.
+3. 1个 容量为 10  小根堆。
+
+
+
+数据流采样：源源不断的数据，随机采样K个
+
+- k = 1：第1个保存，以后第i个以 1/i 替换旧的进行保留。
+- k > 1：前k个保存，以后第i个以 1/i 替换旧的 k个数字。
+
+
+
+基数估计：大数据中估计一天cuid个数？
+
+- HyperLogLog：hll Sketch就是用来 大规模计数的方法。
+
+
+
+频率估计：cuid1 几个， cuid2 几个？
+
+[Count-Min Sketch：(和布隆过滤器差不多)](https://dirtysalt.github.io/html/probabilistic-data-structures-for-web-analytics-and-data-mining.html)
+
+1. 选定d个hash函数，开一个 d * m 的二维整数数组作为哈希表
+2. 对于每个元素，分别使用d个hash函数计算相应的哈希值，并对m取余，然后在对应的位置上增1，二维数组中的每个整数称为sketch
+3. 要查询某个元素的频率时，只需要取出d个sketch, 返回最小的那一个（其实d个sketch都是该元素的近似频率，返回任意一个都可以，该算法选择最小的那个）
+
+<img src="readme.assets/count-min-sketch.jpg" alt="img" style="zoom:50%;" />
+
+#### Count-Min Sketch
+
+```
+1. 使用二维的hash table, w是hash table的取值空间, d是hash函数的个数
+2. 对某个element, 分别使用d个hash函数计算相应的hash值, 并在对应的bucket上递增1, 每个bucket的值称为sketch, 如图
+然后在查询某个element的frequency时, 只需要取出所有d个sketch, 然后取最小的那个作为预估值, 如其名
+3. 因为为了节省空间, w*d是远小于真正的element个数的, 所以必然会出现很多的冲突, 而最小的那个应该是冲突最少的, 最精确的那个
+```
+
+![image](readme.assets/29152031-f525c3d8a7074b0e970459d629a6db93.png)
+
+
+
+#### **[TOP K 频繁项](https://soulmachine.gitbooks.io/system-design/content/cn/bigdata/heavy-hitters.html)**
+
+**方案1: HashMap + Heap**
+
+用一个 `HashMap<String, Long>`，存放所有元素出现的次数，用一个小根堆，容量为k，存放目前出现过的最频繁的k个元素，
+
+1. 每次从数据流来一个元素，如果在HashMap里已存在，则把对应的计数器增1，如果不存在，则插入，计数器初始化为1
+2. 在堆里查找该元素，**如果找到，把堆里的计数器也增1，并调整堆**；如果没有找到，把这个元素的次数跟堆顶元素比较，如果大于堆丁元素的出现次数，则把堆丁元素替换为该元素，并调整堆
+3. 空间复杂度`O(n)`。HashMap需要存放下所有元素，需要`O(n)`的空间，堆需要存放k个元素，需要`O(k)`的空间，跟`O(n)`相比可以忽略不急，总的时间复杂度是`O(n)`
+4. 时间复杂度`O(n)`。每次来一个新元素，需要在HashMap里查找一下，需要`O(1)`的时间；然后要在堆里查找一下，需要遍历`O(k)`的时间，有可能需要调堆，又需要`O(logk)`的时间，总的时间复杂度是`O(n(k+logk))`，k是常量，所以可以看做是O(n)。
+
+如果元素数量巨大，单机内存存不下，怎么办？ 有两个办法，见方案2和3。
+
+
+
+**方案2: 多机HashMap + Heap**
+
+- 可以把数据进行分片。假设有8台机器，第1台机器只处理`hash(elem)%8==0`的元素，第2台机器只处理`hash(elem)%8==1`的元素，以此类推。
+- 每台机器都有一个HashMap和一个 Heap, 各自独立计算出 top k 的元素
+- 把每台机器的Heap，通过网络汇总到一台机器上，将多个Heap合并成一个Heap，就可以计算出总的 top k 个元素了
+
+
+
+**方案3: Count-Min Sketch + Heap**
+
+既然方案1中的HashMap太大，内存装不小，那么可以用[Count-Min Sketch算法](https://soulmachine.gitbooks.io/system-design/content/cn/bigdata/frequency-estimation.html)代替HashMap，
+
+- 在数据流不断流入的过程中，维护一个标准的Count-Min Sketch 二维数组
+- 维护一个小根堆，容量为k
+- 每次来一个新元素，
+  - 将相应的sketch增1
+  - 在堆中查找该元素，如果找到，把堆里的计数器也增1，并调整堆；如果没有找到，把这个元素的sketch作为钙元素的频率的近似值，跟堆顶元素比较，如果大于堆丁元素的频率，则把堆丁元素替换为该元素，并调整堆
+
+这个方法的时间复杂度和空间复杂度如下：
+
+- 空间复杂度`O(dm)`。m是二维数组的列数，d是二维数组的行数，堆需要`O(k)`的空间，不过k通常很小，堆的空间可以忽略不计
+- 时间复杂度`O(nlogk)`。每次来一个新元素，需要在二维数组里查找一下，需要`O(1)`的时间；然后要在堆里查找一下，`O(logk)`的时间，有可能需要调堆，又需要`O(logk)`的时间，总的时间复杂度是`O(nlogk)`。
+
+
+
+#### 检索串排序
+
+搜索引擎会通过日志文件把用户每次检索使用的所有检索串都记录下来，每个查询串的长度为1-255字节。
+    假设目前有一千万个记录（这些查询串的重复度比较高，虽然总数是1千万，但如果除去重复后，不超过3百万个。一个查询串的重复度越高，说明查询它的用户越多，也就是越热门。），请你统计最热门的10个查询串，要求使用的内存不能超过1G。
+——————————
+
+
+
+**3、有一个1G大小的一个文件，里面每一行是一个词，词的大小不超过16字节，内存限制大小是1M。返回频数最高的100个词。**
+
+- 1000个桶，桶里存HashMap
+-  堆
+
+
+
+#### 海量数据方法总结
+
+1. Bloom filter
+
+2. 二Hashing
+
+   　　适用范围：快速查找，删除的基本数据结构，通常需要总数据量可以放入内存
+
+      　　基本原理及要点：
+      　　hash函数选择，针对字符串，整数，排列，具体相应的hash方法。
+      　　碰撞处理，一种是open hashing，也称为拉链法；另一种就是closed hashing，也称开地址法，opened addressing。
+
+     扩展：
+
+      　　d-left hashing中的d是多个的意思，我们先简化这个问题，看一看2-left hashing。2-left hashing指的是将一个哈希表分成长度相等的两半，分别叫做T1和T2，给T1和T2分别配备一个哈希函数，h1和h2。在存储一个新的key时，同时用两个哈希函数进行计算，得出两个地址h1[key]和h2[key]。这时需要检查T1中的h1[key]位置和T2中的h2[key]位置，哪一个位置已经存储的（有碰撞的）key比较多，然后将新key存储在负载少的位置。如果两边一样多，比如两个位置都为空或者都存储了一个key，就把新key存储在左边的T1子表中，2-left也由此而来。在查找一个key时，必须进行两次hash，同时查找两个位置。
+
+      　　问题实例：
+      　　1).海量日志数据，提取出某日访问百度次数最多的那个IP。
+      　　IP的数目还是有限的，最多2^32个，所以可以考虑使用hash将ip直接存入内存，然后进行统计。
+
+   
+
+
+   三、bit-map
+
+   　　适用范围：可进行数据的快速查找，判重，删除，一般来说数据范围是int的10倍以下
+
+   　　基本原理及要点：使用bit数组来表示某些元素是否存在，比如8位电话号码
+
+   　　扩展：bloom filter可以看做是对bit-map的扩展
+
+   　　问题实例：
+   　　1) 已知某个文件内包含一些电话号码，每个号码为8位数字，统计不同号码的个数。
+   　　8位最多99 999 999，大概需要99m个bit，大概10几m字节的内存即可。
+   　　2) 2.5亿个整数中找出不重复的整数的个数，内存空间不足以容纳这2.5亿个整数。
+
+   　　将bit-map扩展一下，用2bit表示一个数即可，0表示未出现，1表示出现一次，2表示出现2次及以上。或者我们不用2bit来进行表示，我们用两个bit-map即可模拟实现这个2bit-map。
+
+   
+
+
+   四、堆
+
+   　　适用范围：海量数据前n大，并且n比较小，堆可以放入内存
+
+   　　基本原理及要点：最大堆求前n小，最小堆求前n大。方法，比如求前n小，我们比较当前元素与最大堆里的最大元素，如果它小于最大元素，则应该替换那个最大元素。这样最后得到的n个元素就是最小的n个。适合大数据量，求前n小，n的大小比较小的情况，这样可以扫描一遍即可得到所有的前n元素，效率很高。
+
+   　　扩展：双堆，一个最大堆与一个最小堆结合，可以用来维护中位数。
+
+   　　问题实例：
+   　　1)100w个数中找最大的前100个数。
+   　　用一个100个元素大小的最小堆即可。
+
+
+
+
+
+
+#### 海量提共同元素
+
+**5、 给定a、b两个文件，各存放50亿个url，每个url各占64字节，内存限制是4G，让你找出a、b文件共同的url？**
+
+1. A 要搞成1000个桶，每个存300M，然后遍历a的每个文件，放入hast_set
+
+2. B也搞成1000个桶，每个存3000M。如果b中也有，就可以存在文件中了。
+
+   
+
+方法二：
+
+1. Bloom filter：对上面的1000个桶，
+
+
+
+#### 海量找出不同的数
+
+6、在2.5亿个整数中找出不重复的整数，注，内存不足以容纳这2.5亿个整数。
+
+    方案1：采用2-Bitmap（每个数分配2bit，00表示不存在，01表示出现一次，10表示多次，11无意义）进行，共需内存2^32 * 2 bit=1 GB内存，还可以接受。然后扫描这2.5亿个整数，查看Bitmap中相对应位，如果是00变01，01变10，10保持不变。所描完事后，查看bitmap，把对应位是01的整数输出即可。
+    
+    方案2：也可采用与第1题类似的方法，进行划分小文件的方法。然后在小文件中找出不重复的整数，并排序。然后再进行归并，注意去除重复的元素。
+
+
+#### 海量判定存在
+
+**腾讯面试题：给40亿个不重复的unsigned int的整数，没排过序的，然后再给一个数，如何快速判断这个数是否在那40亿个数当中？**
+
+
+
+
+
+#### 
+
+
+
+
+
+
+
+
+
+### 跳表
+
+[参考知乎](https://zhuanlan.zhihu.com/p/54869087)
+
+Redis —— 跳表，有序集合
+
+1. 先对链表中每两个节点建立第一级索引再对第一级索引每两个节点建立第二级索引。
+2. 节点总和：这几级索引的结点总和就是n/2+n/4+n/8…+8+4+2=n-2。
+   1. 时间复杂度：O(3log2n) = O(log2n)，而每层需要访问的 m 个结点，m 的最大值不超过 3
+   2. 空间：0（n)
+
+
+
+
+
 
 
 
@@ -7017,3 +7137,242 @@ IDEA中maven聚合工程不识别子模块：https://blog.csdn.net/qq_37250199/a
 IDEA maven插件使用：https://www.javatt.com/p/85159
 
 [idea] 解决maven刷新后重置Language Level和Java Compiler版本:
+
+JDK lavel-target：要在pox.xml里面配置好
+
+
+
+
+
+# 10 Linux 
+
+参考教程：
+
+[Linux 教程（菜鸟）](https://www.runoob.com/linux/linux-tutorial.html)
+
+[cyc2018linux教程](https://cyc2018.github.io/CS-Notes/#/notes/Linux?id=一、常用操作以及概念)
+
+
+
+  有时候需要配置ubuntu安装的软件，一般安装软件都是使用apt-get install。那么安装完后，软件的安装目录在哪里呢，可执行文件又放在哪里呢。
+
+  A、下载的软件的存放位置：/var/cache/apt/archives
+
+  B、安装后软件的默认位置：/usr/share
+
+  C、可执行文件位置：/usr/bin
+
+  D、配置文件位置：/etc
+
+   E、lib文件位置：/usr/lib
+
+
+
+
+
+## 启动过程
+
+1. BIOS引导程序启动。首先是BIOS开机自检，按照BIOS中设置的启动设备（通常是硬盘）来启动
+
+1. /boot目录下的读取linux内核。操作系统接管硬件以后，首先读入 /boot 目录下的内核文件
+
+1. init进程启动。init 进程是系统所有进程的起点
+
+1. 根据“运行级别”执行不同的启动程序。启动时根据"运行级别"，确定要运行哪些程序
+
+1. 建立了6个tty终端。在inittab中的以下6行就是定义了6个终端
+
+1. 用户系统登录，tty登录 & 图形界面（ctrl+alt+7）
+
+1. 关机与重启
+
+```
+shutdown –h now // 立马关机
+reboot //就是重启，等同于 shutdown –r now
+```
+
+## 关于目录结构
+
+![img](readme.assets/asynccode-1615810094952.png)
+
+
+
+**/opt**：opt 是 optional(可选) 的缩写，这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。
+
+
+
+**/bin：**bin 是 Binaries (二进制文件) 的缩写, 这个目录存放着最经常使用的命令。
+
+
+
+**/usr**： usr 是 unix shared resources(共享资源) 的缩写，这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于 windows 下的 program files 目录。
+
+- - **/usr/bin：****系统用户**使用的应用程序。
+
+- - **/usr/sbin：****超级用户**使用的比较高级的管理程序和系统守护程序。
+
+- - **/usr/src：**内核源代码默认的放置目录。
+
+
+
+**/proc**：proc 是 Processes(进程) 的缩写，/proc 是一种伪文件系统（也即虚拟文件系统），存储的是当前内核运行状态的一系列特殊文件，这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件，比如可以通过下面的命令来屏蔽主机的ping命令，使别人无法ping你的机器：
+
+
+
+**/etc：**etc 是 Etcetera(等等) 的缩写，**这个目录用来存放所有的系统管理所需要的配置文件和子目录。**
+
+
+
+## 文件的基本属性
+
+- 当为 **d** 则是目录
+
+- 当为 **-** 则是文件；
+
+- 若是 **l** 则表示为链接文档(link file)；
+
+![img](readme.assets/asynccode-1615810094952.png)
+
+文件的属主、属组、根据用户不同对文件的不同的执行权限
+
+```
+chgrp [-R] 属组名 文件名
+
+chown [–R] 属主名 文件名
+chown [-R] 属主名：属组名 文件名
+
+# 改变文件的权限 user, group, other, all
+chmod 777 .bashrc
+chmod u=rwx,g=rx,o=r  test1    // 修改 test1 权限
+chmod  a-x test1
+```
+
+## 文件与目录管理
+
+ls/mkdir/rmdir/cp/rm/mv/rename
+
+```
+mkdir -p test1/test2/test3/test4
+
+// -P ：显示出确实的路径，而非使用连结 (link) 路径。
+
+# 备份文件一定要用这个，不然就凉了了
+cp -a sourcefilename tofilename
+```
+
+### 文件内容的查看
+
+```
+// 查看全文 cat filename 
+
+// 查看倒叙文件 tac filename 
+
+// nl查看 nl /etc/issue 
+
+// more 和less的命令一样 空白先后，b向前 q退出（quit) 
+
+// less好用 less filename head filename head -n 10 filename tail filename tail -n 10 filename 
+```
+
+
+
+### [文件定位](https://zhuanlan.zhihu.com/p/35727707)
+
+1. **which**：常用于查找可直接执行的命令。只能查找可执行文件，该命令基本只在$PATH路径中搜索，查找范围最小，查找速度快。默认只返回第一个匹配的文件路径，通过选项 *-a* 可以返回所有匹配结果。
+
+1. **whereis**：不只可以查找命令，其他文件类型都可以（man中说只能查命令、源文件和man文件，实际测试可以查大多数文件）。在$PATH路径基础上增加了一些系统目录的查找，查找范围比which稍大，查找速度快。可以通过 *-b* 选项，限定只搜索二进制文件。
+
+1. **locate**：超快速查找任意文件。它会从linux内置的索引数据库查找文件的路径，索引速度超快。刚刚新建的文件可能需要一定时间才能加入该索引数据库，可以通过执行updatedb命令来强制更新一次索引，这样确保不会遗漏文件。该命令通常会返回大量匹配项，可以使用 *-r* 选项通过正则表达式来精确匹配。
+
+1. **find**：直接搜索整个文件目录，默认直接从根目录开始搜索，建议在以上命令都无法解决问题时才用它，功能最强大但速度超慢。除非你指定一个很小的搜索范围。通过 *-name* 选项指定要查找的文件名，支持通配符。
+
+```
+tarena@tedu:/$ which -a ls
+/bin/ls
+
+tarena@tedu:~$ locate -r '\bls$'
+
+tarena@tedu:~$ find ~ /bin/ -name ls
+/home/tarena/ls
+/bin/ls
+```
+
+## 用户和用户组管理
+
+关于linux系统用户的修改
+
+1. 添加删除用户
+
+1. 为用户设置口令
+
+1. 为root设置口令。普通用户修改自己的口令时，passwd命令会先询问原口令，验证后再要求用户输入两遍新口令，如果两次输入的口令一致，则将这个口令指定给用户；而超级用户为用户指定口令时，就不需要知道原口令。
+
+
+
+
+
+关于linux系统用户组的修改，就是该/etc/group文件的更新
+
+## 磁盘管理
+
+Linux磁盘管理好坏直接关系到整个系统的性能问题。
+
+```
+// 列出文件系统的整体磁盘使用量
+df -h
+```
+
+[linux命令大全](https://www.runoob.com/linux/linux-comm-bunzip2.html)
+
+## 命令求助
+
+[1. --help](https://cyc2018.github.io/CS-Notes/#/notes/Linux?id=_1-help)
+
+指令的基本用法与选项介绍。
+
+[2. man](https://cyc2018.github.io/CS-Notes/#/notes/Linux?id=_2-man)
+
+man 是 manual 的缩写，将指令的具体信息显示出来。
+
+当执行 man date 时，有 DATE(1) 出现，其中的数字代表指令的类型，常用的数字及其类型如下：
+
+![img](readme.assets/asynccode-1615810094952.png)
+
+
+
+[3. info](https://cyc2018.github.io/CS-Notes/#/notes/Linux?id=_3-info)
+
+info 与 man 类似，但是 info 将文档分成一个个页面，每个页面可以跳转。
+
+## 进程详情
+
+### 后台运行程序
+
+![img](readme.assets/asynccode-1615810094952.png)
+
+### 查看进程状态
+
+```
+// all user x(完整的)信息，用管道less显示，
+ps -aux | less
+
+// 查看特定进程
+ps aux | grep threadx
+
+// 查看进程端口
+netstat -anp | grep port
+
+// 查看打开了8080端口的文件
+losf -i:8080
+```
+
+
+
+Systemctl：利用Systemmd来管理linux系统中的服务。启动服务；设置开机启动等
+
+https://blog.csdn.net/skh2015java/article/details/94012643
+
+
+
+
+
